@@ -1,0 +1,55 @@
+import { useState, useEffect } from 'react';
+import Navbar from '../Components/Navbar';
+import Footer from '../Components/Footer';
+import { useParams, useNavigate } from 'react-router-dom';
+
+type ArticleProps = {
+  title: string,
+  content: string,
+  category: string,
+  imageUrl: string,
+  createdAt: string
+}
+
+export default function Article() {
+
+  const { id } = useParams();
+  const [currentArticle, setCurrentArticle] = useState<ArticleProps>();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    async function fetchArticle(){
+      try {
+        const res = await fetch(`http://localhost:7500/article/${id}`);
+        const result = await res.json();
+
+        if(!res.ok){
+          navigate('*', {replace: true});
+          return;
+        }
+
+      setCurrentArticle(result);
+      } catch (err: unknown) {
+        if(err instanceof Error)
+          console.error(err)
+      } 
+    }
+    
+    fetchArticle();
+  }, [id])
+
+  return (
+    <>
+      <Navbar/>
+      <div className='flex justify-center mt-20' id='articleDiv'>
+        <div className='flex flex-col items-center w-1/3 gap-8' id='innerArticleDiv'>
+          <img src={currentArticle?.imageUrl} width={700} height={700} alt="articleImage" />
+          <p className='self-start italic text-gray-600'>{currentArticle?.createdAt.substring(0, 10)}</p>
+          <h1 className='text-3xl md:text-4xl'>{currentArticle?.title}</h1>
+          <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{currentArticle?.content}</p>
+        </div>
+      </div>
+      <Footer/>
+    </>
+  )
+}

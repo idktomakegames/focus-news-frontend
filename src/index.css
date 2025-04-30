@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    min-height: 100vh;
+    transition: 0.1s ease-in;
+}
+textarea{
+    max-width: 350px;
+    max-height: 550px;
+    field-sizing: content;
+}
+
+#articlesDisplay{
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fit, 1fr);
+    width: 50vw;
+}
+#menuBtn{
+    visibility: hidden;
+    z-index: 10;
+}
+#sidebar{
+    display: none;
+}
+
+
+@media (max-width: 1100px) {
+    #menuBtn{
+        visibility: visible;
+    }
+    #navbarSections{
+        display: none;
+    }
+    #sidebar{
+        display: flex;
+        z-index: 10;
+        width: 50vw;
+    }
+    #innerArticleDiv{
+        width: 75%;
+    }
+}
+
+@media (max-width: 900px){
+    #aboutContainer{
+        width: 75%;
+    }
+}
+
+@media (max-width: 868px) {
+    #signupDiv, #loginDiv, #adminDiv, #deleteDiv{
+        flex-direction: column;
+    }
+    #signupDiv1, #signupDiv2, #loginDiv1, #loginDiv2, #adminDiv1, #adminDiv2{
+        width: 100%;
+    }
+    #adminDiv1{
+        position: relative;
+    }
+    #deleteDiv{
+        margin-left: auto;
+        min-width: 100%;
+    }
+    #signupDiv1, #loginDiv1, #adminDiv1{
+        height: 33%;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+
+    #articlesDisplay{
+        width: 90vw;
+    }
+}
+
+@media (max-width: 700px) {
+    #menuBtn{
+        visibility: visible;
+    }
+    #navbarSections{
+        display: none;
+    }
+    #sidebar{
+        display: flex;
+        z-index: 10;
+        width: 100vw;
+    }
+    #searchBar{
+        display: none;
+    }
+}
+
+@media (max-width: 505px) {
+    /* #adminDiv1{
+        width: 100vw;
+    } */
+    #adminDiv2 form {
+        padding: 0;
+    }
+}
