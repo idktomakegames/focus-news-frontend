@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import Administratie from './Routes/Administratie';
 import Economie from './Routes/Economie';
 import Infrastructura from './Routes/Infrastructura';
@@ -43,6 +43,7 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false)
   const [globalUser, setGlobalUser] = useState('');
   const [checked, setChecked] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function checkLogIn(){
@@ -57,7 +58,7 @@ function App() {
         if(res.ok){
           setIsLoggedIn(true)
           setGlobalUser(result.username);
-          window.location.reload();
+          navigate("/", { replace: true })
         } else {
           setIsLoggedIn(false)
           setGlobalUser('');
