@@ -23,9 +23,11 @@ export default function Administratie() {
       const result = await res.json();
       setArticles(result.articles)
       setTotalPages(result.totalPages)
+      console.log(totalPages);
+      
     }
     fetchArticles()
-    }, [currentPage]);
+    }, [currentPage, totalPages]);
 
     function nextPage(){
       if(currentPage === totalPages) return;
