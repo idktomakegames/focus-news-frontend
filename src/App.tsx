@@ -57,6 +57,7 @@ function App() {
         if(res.ok){
           setIsLoggedIn(true)
           setGlobalUser(result.username);
+          window.location.reload();
         } else {
           setIsLoggedIn(false)
           setGlobalUser('');
