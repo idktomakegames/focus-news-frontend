@@ -11,8 +11,6 @@ export default function Profile() {
     if (logContext.checked) { 
       if (!logContext.isLoggedIn) {
         navigate("/login", { replace: true });
-    } else{
-      window.location.reload()
     }
   }
   }, [logContext.isLoggedIn, logContext.checked, logContext.globalUser]);
@@ -43,7 +41,7 @@ export default function Profile() {
             <legend className='text-center text-5xl font-semibold'>
               Profil
             </legend>
-            <h1 className='text-3xl font-semibold pb-5'>Bine ai revenit, {logContext.globalUser}!</h1>
+            <h1 className='text-3xl font-semibold pb-5'>Bine ai revenit {logContext.globalUser ? logContext.globalUser : ""}!</h1>
             <i className="fa-solid fa-circle-user text-8xl"></i>
             <button className='bg-red-700 hover:bg-red-600 text-white rounded-lg p-1 w-full' onClick={logout}>Log out</button>
           </fieldset>
