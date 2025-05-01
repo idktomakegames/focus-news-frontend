@@ -14,7 +14,6 @@ export default function Login() {
    useEffect(() => {
     if (logContext.checked) { 
       if (logContext.isLoggedIn) {
-        window.alert("Hello there")
         navigate("/", { replace: true });
       }
     }
