@@ -20,7 +20,7 @@ export default function Article() {
   useEffect(() => {
     async function fetchArticle(){
       try {
-        const res = await fetch(`https://focus-news-backend-production.up.railway.app/${id}`);
+        const res = await fetch(`https://focus-news-backend-production.up.railway.app/article/${id}`);
         const result = await res.json();
 
         if(!res.ok){
