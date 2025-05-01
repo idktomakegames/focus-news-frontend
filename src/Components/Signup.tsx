@@ -17,7 +17,7 @@ export default function Signup() {
         navigate("/", { replace: true });
       }
     }
-}, [logContext.isLoggedIn, logContext.checked]);
+}, [logContext.isLoggedIn, logContext.checked, logContext.globalUser]);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
