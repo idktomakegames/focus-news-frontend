@@ -37,7 +37,7 @@ export default function ChangePassword() {
         setSuccess('');
         e.preventDefault();
         try {
-            const res = await fetch(`${process.env.API_ADRESS}/update-password`, {
+            const res = await fetch(`https://focus-news-backend-production.up.railway.app/update-password`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
