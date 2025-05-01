@@ -14,9 +14,8 @@ export default function Profile() {
     }
     alert(logContext.isLoggedIn);
     console.log(logContext.isLoggedIn);
-    
   }
-  }, [logContext.isLoggedIn, logContext.checked]);
+  }, [logContext.isLoggedIn, logContext.checked, logContext.globalUser]);
 
 
   async function logout(){
