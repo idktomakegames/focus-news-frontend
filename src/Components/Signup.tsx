@@ -47,7 +47,7 @@ export default function Signup() {
       if(res.ok){
         setSuccess(result)
         setTimeout(() => {
-          logContext.setIsLoggedIn(true)   
+          logContext.setIsLoggedIn(true)  
         }, 2000)    
       }
       

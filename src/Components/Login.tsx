@@ -43,6 +43,7 @@ export default function Login() {
         setSuccess(result)
         setTimeout(() => {
           logContext.setIsLoggedIn(true)  
+          console.log(logContext.isLoggedIn) 
         }, 2000)    
       }
       
