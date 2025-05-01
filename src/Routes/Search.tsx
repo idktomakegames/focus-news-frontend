@@ -26,7 +26,7 @@ export default function Search() {
 
             if(!res.ok){
                 setError(result);
-                return
+                return;
             }
 
             setArticles(result)
