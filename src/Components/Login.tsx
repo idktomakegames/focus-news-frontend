@@ -17,7 +17,7 @@ export default function Login() {
         navigate("/", { replace: true });
       }
     }
-}, [logContext.isLoggedIn]);
+}, [logContext.isLoggedIn, logContext.checked]);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -45,7 +45,6 @@ export default function Login() {
         setSuccess(result)
         setTimeout(() => {
           logContext.setIsLoggedIn(true)  
-          window.location.reload();
         }, 2000)    
       }
       
