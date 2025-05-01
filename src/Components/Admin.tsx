@@ -181,7 +181,7 @@ export default function Admin() {
             </legend>
             <input className='bg-gray-100 border border-gray-500 p-1 rounded-lg w-full' type="search" required placeholder='Search article (by title)' onChange={(e) => setDeleteQuery(e.target.value)} />      
             <p className='text-red-500 text-md font-bold'>{deleteError}</p>
-            <p className='text-green-500 text-md font-bold'>{deleteSuccess}</p>
+            <p className='text-green-500 text-sm font-bold'>{deleteSuccess}</p>
             {isDeleteActive ? <button type='submit' disabled className='bg-red-900 text-white rounded-xl p-1 w-full text-md'>În curs de ștergere...</button> :
             <button type='submit' className='bg-red-700 text-white hover:bg-red-600 rounded-xl p-1 w-full text-md'>Șterge articol</button>}
           </fieldset>
