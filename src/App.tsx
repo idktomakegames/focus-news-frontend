@@ -53,7 +53,6 @@ function App() {
       });
 
         const result = await res.json();
-        alert(result)
 
         if(res.ok){
           setIsLoggedIn(true)
