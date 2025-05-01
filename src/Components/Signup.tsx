@@ -64,7 +64,7 @@ export default function Signup() {
     <>
       <div className='w-full h-screen flex' id='signupDiv'>
         <div className='bg-blue-900 w-1/2 h-full flex flex-col items-center' id='signupDiv1'>
-          <Link to='/' className='self-start text-gray-300 opacity-40 hover:text-gray-100 p-3' onClick={() => navigate(-1)}>&lt;--</Link>
+          <Link to='/' className='self-start absolute top-0 left-0 text-gray-300 opacity-40 hover:text-gray-100 p-3' onClick={() => navigate(-1)}>&lt;--</Link>
           <img src="/logo.png" width={700} height={400} alt="logo picture" id='logo'/>
         </div>
         <div className='flex flex-col items-center justify-center w-1/2' id='signupDiv2'>
