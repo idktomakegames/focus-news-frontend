@@ -35,7 +35,6 @@ export default function Login() {
       const result = await res.json();
 
       if(!res.ok){
-        e.preventDefault();
         setError(result)
         return;
       }
@@ -43,7 +42,6 @@ export default function Login() {
       if(res.ok){
         setSuccess(result)
         setTimeout(() => {
-          window.location.reload() 
           logContext.setIsLoggedIn(true)  
         }, 2000)    
       }
