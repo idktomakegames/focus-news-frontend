@@ -14,6 +14,7 @@ export default function Login() {
    useEffect(() => {
     if (logContext.checked) { 
       if (logContext.isLoggedIn) {
+        window.alert("Hello there")
         navigate("/", { replace: true });
       }
     }
@@ -46,7 +47,6 @@ export default function Login() {
         setTimeout(() => {
           logContext.setIsLoggedIn(true)  
           window.location.reload();
-          console.log(logContext.isLoggedIn) 
         }, 2000)    
       }
       
