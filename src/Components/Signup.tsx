@@ -12,9 +12,11 @@ export default function Signup() {
   const logContext = useContext(LogContext);
 
   useEffect(() => {
-    if (logContext.isLoggedIn) {
-      navigate("/", {replace: true})  
-  }
+    if (logContext.checked) { 
+      if (!logContext.isLoggedIn) {
+        navigate("/", { replace: true });
+      }
+    }
 }, [logContext.isLoggedIn]);
 
   async function onSubmit(e: React.FormEvent) {
