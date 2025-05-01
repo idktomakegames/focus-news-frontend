@@ -14,7 +14,7 @@ export default function Search() {
 
     const [articles, setArticles] = useState<ArticleProps[]>([]);
     const { query } = useParams();
-    const  [error, setError] = useState('');
+    const [error, setError] = useState('');
 
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export default function Search() {
         }
 
         queryArticles();
-    }, [query]);
+    }, []);
   
     return (
       <>
