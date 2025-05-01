@@ -12,7 +12,7 @@ export default function ChangePassword() {
     useEffect(() => {
         async function checkResetToken(){
             try {
-                const res = await fetch('http://localhost:7500/valid/reset-token',{
+                const res = await fetch(`https://focus-news-backend-production.up.railway.app/valid/reset-token`,{
                     headers: {
                         "authorization": `Bearer ${token}`
                     }
@@ -37,7 +37,7 @@ export default function ChangePassword() {
         setSuccess('');
         e.preventDefault();
         try {
-            const res = await fetch('http://localhost:7500/update-password', {
+            const res = await fetch(`${process.env.API_ADRESS}/update-password`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

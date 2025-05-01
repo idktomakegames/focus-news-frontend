@@ -62,7 +62,7 @@ export default function Admin() {
       data.append('articleImg', image)
 
       try {
-        const res = await fetch('http://localhost:7500/upload-image', {
+        const res = await fetch('https://focus-news-backend-production.up.railway.app/upload-image', {
         method: "POST",
         credentials: "include",
         body: data
@@ -71,7 +71,7 @@ export default function Admin() {
         const imageUrl = result.imageUrl;
 
       if(res.status === 201){
-          const res2 = await fetch('http://localhost:7500/post-article', {
+          const res2 = await fetch('https://focus-news-backend-production.up.railway.app/post-article', {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -106,7 +106,7 @@ export default function Admin() {
     console.log(deleteQuery);
     
     try {
-      const res = await fetch("http://localhost:7500/delete/article", {
+      const res = await fetch("https://focus-news-backend-production.up.railway.app/delete/article", {
         method: "DELETE",
         credentials: "include",
         headers: {

@@ -19,7 +19,7 @@ export default function Tragedii() {
 
     useEffect(() => {
       async function fetchArticles() {
-      const res = await fetch(`http://localhost:7500/get-articles/category/tragedii/${currentPage}`)
+      const res = await fetch(`https://focus-news-backend-production.up.railway.app/get-articles/category/tragedii/${currentPage}`)
       const result = await res.json();
       setArticles(result.articles)
       setTotalPages(result.totalPages)

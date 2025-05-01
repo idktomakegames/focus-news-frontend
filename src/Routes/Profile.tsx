@@ -17,7 +17,7 @@ export default function Profile() {
 
 
   async function logout(){
-    const res = await fetch('http://localhost:7500/logout', {
+    const res = await fetch(`https://focus-news-backend-production.up.railway.app/logout`, {
       credentials: "include"
     });
 

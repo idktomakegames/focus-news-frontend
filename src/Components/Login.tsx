@@ -23,7 +23,7 @@ export default function Login() {
     setSuccess('');
 
     try {
-      const res = await fetch("http://localhost:7500/login", {
+      const res = await fetch("https://focus-news-backend-production.up.railway.app/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

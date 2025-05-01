@@ -22,7 +22,7 @@ export default function ResetPassword() {
     setSuccess('');
 
     try {
-      const res = await fetch("http://localhost:7500/reset-password", {
+      const res = await fetch(`https://focus-news-backend-production.up.railway.app/reset-password`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

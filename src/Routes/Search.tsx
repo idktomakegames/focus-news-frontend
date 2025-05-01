@@ -19,7 +19,7 @@ export default function Search() {
 
     useEffect(() => {
         async function queryArticles(){
-            const res = await fetch(`http://localhost:7500/search/${query}`);
+            const res = await fetch(`https://focus-news-backend-production.up.railway.app/search/${query}`);
             const result = await res.json();
             console.log(result);
             

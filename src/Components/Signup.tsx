@@ -28,7 +28,7 @@ export default function Signup() {
     }
 
     try {
-      const res = await fetch("http://localhost:7500/signup", {
+      const res = await fetch(`https://focus-news-backend-production.up.railway.app/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

@@ -46,8 +46,9 @@ function App() {
 
   useEffect(() => {
     async function checkLogIn(){
+      
       try {
-        const res = await fetch('http://localhost:7500/check/permissions', {
+        const res = await fetch(`https://focus-news-backend-production.up.railway.app/check/permissions`, {
         credentials: "include"
       });
 
