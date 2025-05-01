@@ -12,8 +12,6 @@ export default function Profile() {
       if (!logContext.isLoggedIn) {
         navigate("/login", { replace: true });
     }
-    alert(logContext.isLoggedIn);
-    console.log(logContext.isLoggedIn);
   }
   }, [logContext.isLoggedIn, logContext.checked, logContext.globalUser]);
 
