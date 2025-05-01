@@ -13,7 +13,7 @@ export default function Login() {
 
    useEffect(() => {
     if (logContext.checked) { 
-      if (!logContext.isLoggedIn) {
+      if (logContext.isLoggedIn) {
         navigate("/", { replace: true });
       }
     }
