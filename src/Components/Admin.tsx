@@ -11,12 +11,8 @@ export default function Admin() {
     const [category, setCategory] = useState('');
     const [uploadError, setUploadError] = useState('');
     const [uploadSuccess, setUploadSuccess] = useState('');
-    const [deleteError, setDeleteError] = useState('');
-    const [deleteSuccess, setDeleteSuccess] = useState('');
     const [isUploadActive, setIsUploadActive] = useState(false);
-    const [isDeleteActive, setIsDeleteActive] = useState(false);
     const navigate = useNavigate();
-    const [deleteQuery, setDeleteQuery] = useState('');
     const logContext = useContext(LogContext)
 
     useEffect(() => {
@@ -98,39 +94,6 @@ export default function Admin() {
   }
 }  
 
-  async function deleteArticle(e: React.FormEvent){
-    setIsDeleteActive(true)
-    setDeleteError('')
-    setDeleteSuccess('')
-    e.preventDefault();
-    console.log(deleteQuery);
-    
-    try {
-      const res = await fetch("https://focus-news-backend-production.up.railway.app/delete/article", {
-        method: "DELETE",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({query: deleteQuery})
-      })
-
-      const result = await res.json();
-      if(res.ok){
-        setDeleteSuccess(`${result.message}: ${result.title}`);
-        setIsDeleteActive(false)
-        return;
-      }
-      setDeleteError(result.message)
-      setIsDeleteActive(false)
-
-    } catch (err: unknown) {
-      if(err instanceof Error){
-        setDeleteError(err.message)
-        setIsDeleteActive(false)
-    }
-  }
-}
 
   return (
     <>  
@@ -172,20 +135,6 @@ export default function Admin() {
           </fieldset>
         </form>
       </div> 
-      </div>
-      <div className='flex flex-col items-center w-1/2 ml-auto my-20' id='deleteDiv'>
-      <form onSubmit={(e) => deleteArticle(e)}>
-          <fieldset className='border rounded-lg border-gray-400 p-6 md:p-10 flex flex-col gap-5 items-center bg-gray-100'>
-            <legend className='text-center text-4xl md:text-5xl font-semibold font-serif'>
-              Delete Article
-            </legend>
-            <input className='bg-gray-100 border border-gray-500 p-1 rounded-lg w-full' type="search" required placeholder='Search article (by title)' onChange={(e) => setDeleteQuery(e.target.value)} />      
-            <p className='text-red-500 text-md font-bold'>{deleteError}</p>
-            <p className='text-green-500 text-sm font-bold'>{deleteSuccess}</p>
-            {isDeleteActive ? <button type='submit' disabled className='bg-red-900 text-white rounded-xl p-1 w-full text-md'>În curs de ștergere...</button> :
-            <button type='submit' className='bg-red-700 text-white hover:bg-red-600 rounded-xl p-1 w-full text-md'>Șterge articol</button>}
-          </fieldset>
-        </form>
       </div>
     </>
   )
