@@ -5,6 +5,7 @@ import Footer from '../Components/Footer';
 import { useParams, useNavigate } from 'react-router-dom';
 
 type ArticleProps = {
+  _id: string,
   title: string,
   content: string,
   category: string,
@@ -24,6 +25,9 @@ export default function Article() {
       try {
         const res = await fetch(`https://focus-news-backend-production.up.railway.app/article/${id}`);
         const result = await res.json();
+
+        console.log(result);
+        
 
         if(!res.ok){
           navigate('*', {replace: true});
