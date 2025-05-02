@@ -25,6 +25,8 @@ export default function Administratie() {
       setArticles(result.articles)
       setTotalPages(result.totalPages)
       console.log(totalPages);
+      console.log(res);
+      
       
     }
     fetchArticles()
