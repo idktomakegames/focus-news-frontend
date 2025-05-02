@@ -55,6 +55,9 @@ export default function Article() {
     })
 
     const result = await res.json();
+    if(res.ok){
+      navigate('/', {replace: true});
+    }
 
     console.log(result);
     
