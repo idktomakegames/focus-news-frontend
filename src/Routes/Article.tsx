@@ -68,8 +68,8 @@ export default function Article() {
           <p className='self-start italic text-gray-600'>{currentArticle?.createdAt.substring(0, 10)}</p>
           <h1 className='text-3xl md:text-4xl'>{currentArticle?.title}</h1>
           <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{currentArticle?.content}</p>
-        </div>
-        {logContext.isAdmin && <button type='button' onClick={() => deleteArticle(currentArticle!)} className='bg-red-700 text-white rounded-lg p-1'>Delete Article</button>}   
+          {logContext.isAdmin && <button type='button' onClick={() => deleteArticle(currentArticle!)} className='bg-red-700 text-white rounded-lg p-1'>Delete Article</button>}
+        </div>   
       </div>
       <Footer/>
     </>
