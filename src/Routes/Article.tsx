@@ -50,6 +50,7 @@ export default function Article() {
       headers: {
         "Content-Type": "application/json"
       },
+      credentials: "include",
       body: JSON.stringify({query: article._id})
     })
 
