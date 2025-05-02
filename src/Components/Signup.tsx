@@ -74,9 +74,9 @@ export default function Signup() {
               Autentificare
             </legend>
             <h1 className='text-3xl font-semibold pb-5'>Bine ai venit!</h1>
-            <input className='bg-gray-100 border border-gray-500 p-1 rounded-lg w-full' type="text" placeholder='Nume utilizator' onChange={(e) => setUsername(e.target.value)} required />
-            <input className='bg-gray-100 border border-gray-500 p-1 rounded-lg w-full' type="email" placeholder='Adresa ta de email' onChange={(e) => setEmail(e.target.value)} required />
-            <input className='bg-gray-100 border border-gray-500 p-1 rounded-lg w-full' type="password" placeholder='Parola ta' onChange={(e) => setPassword(e.target.value)} required />
+            <input autoComplete='off' className='bg-gray-100 border border-gray-500 p-1 rounded-lg w-full' name='username' type="text" placeholder='Nume utilizator' onChange={(e) => setUsername(e.target.value)} required />
+            <input autoComplete='off' className='bg-gray-100 border border-gray-500 p-1 rounded-lg w-full' name='email' type="email" placeholder='Adresa ta de email' onChange={(e) => setEmail(e.target.value)} required />
+            <input autoComplete='off' className='bg-gray-100 border border-gray-500 p-1 rounded-lg w-full' name='password' type="password" placeholder='Parola ta' onChange={(e) => setPassword(e.target.value)} required />
             <p className='text-red-500 text-sm font-bold'>{error}</p>
             <p className='text-green-500 text-sm font-bold'>{success}</p>
             <button type='submit' className='bg-blue-500 text-white hover:bg-blue-400 rounded-xl p-1 w-full text-md'>Sign up</button>

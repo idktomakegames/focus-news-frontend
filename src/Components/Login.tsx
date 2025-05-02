@@ -70,8 +70,8 @@ export default function Login() {
               Autentificare
             </legend>
             <h1 className='text-3xl font-semibold pb-5'>Bine ai revenit!</h1>
-            <input className='bg-gray-100 border border-gray-500 p-1 rounded-lg w-full' type="email" placeholder='Adresa ta de email' required onChange={(e) => setEmail(e.target.value)} />
-            <input className='bg-gray-100 border border-gray-500 p-1 rounded-lg w-full' type="password" placeholder='Parola ta' required onChange={(e) => setPassword(e.target.value)} />
+            <input name='email' autoComplete='off' className='bg-gray-100 border border-gray-500 p-1 rounded-lg w-full' type="email" placeholder='Adresa ta de email' required onChange={(e) => setEmail(e.target.value)} />
+            <input name='password' autoComplete='off' className='bg-gray-100 border border-gray-500 p-1 rounded-lg w-full' type="password" placeholder='Parola ta' required onChange={(e) => setPassword(e.target.value)} />
             <p className='text-red-500 text-sm font-bold'>{error ? error : null}</p>
             <p className='text-green-500 text-sm font-bold'>{success ? success : null}</p>
             <p>Ai uitat parola? <Link className='text-blue-500 font-semibold hover:text-blue-400' to='/reset/password'>Reset</Link></p>
