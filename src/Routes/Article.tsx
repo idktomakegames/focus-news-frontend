@@ -44,7 +44,7 @@ export default function Article() {
     }
     
     fetchArticle();
-  }, [id, likeCount]);
+  }, [id]);
 
   async function deleteArticle(article: ArticleProps){
     const res = await fetch(`https://focus-news-backend-production.up.railway.app/delete/article`, {
@@ -65,7 +65,7 @@ export default function Article() {
   async function like(){
     const likeState = !liked
     try {
-      await fetch(`https://focus-news-backend-production.up.railway.app/like/article`, {
+      const res = await fetch(`https://focus-news-backend-production.up.railway.app/like/article`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -73,7 +73,11 @@ export default function Article() {
       body: JSON.stringify({article: currentArticle, liked: liked})
     })
 
-    setLiked(likeState)
+    if(res.ok){
+      setLiked(likeState)
+      setLikeCount(prev => (likeState ? prev + 1 : prev - 1));
+    }
+    
   } catch (err: unknown) {
       if(err instanceof Error)
         console.error(err)
