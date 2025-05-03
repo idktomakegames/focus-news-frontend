@@ -44,7 +44,7 @@ export default function Article() {
     }
     
     fetchArticle();
-  }, [id]);
+  }, [id, likeCount]);
 
   async function deleteArticle(article: ArticleProps){
     const res = await fetch(`https://focus-news-backend-production.up.railway.app/delete/article`, {
@@ -74,7 +74,6 @@ export default function Article() {
     })
 
     setLiked(likeState)
-    setLikeCount(prev => prev + (likeState ? 1 : -1));
   } catch (err: unknown) {
       if(err instanceof Error)
         console.error(err)
