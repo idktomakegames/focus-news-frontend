@@ -64,7 +64,7 @@ export default function Article() {
   async function like(){
     const likeState = !liked
     try {
-      const res = await fetch(`https://focus-news-backend-production.up.railway.app/like/article`, {
+      await fetch(`https://focus-news-backend-production.up.railway.app/like/article`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -72,10 +72,6 @@ export default function Article() {
       body: JSON.stringify({article: currentArticle, liked: liked})
     })
 
-    const result = await res.json();
-    if(res.ok){
-      setLikeCount(result.likes)
-    }
     setLiked(likeState)
 
   } catch (err: unknown) {
@@ -83,8 +79,23 @@ export default function Article() {
         console.error(err)
     }
   }
-    
 
+  useEffect(() => {
+    async function getLikes(){
+      try {
+        const res = await fetch(`https://focus-news-backend-production.up.railway.app/total-likes/${currentArticle?._id}`);
+        const result = await res.json();
+        if(res.ok){
+          setLikeCount(result)
+        }      
+      } catch (err: unknown) {
+        if(err instanceof Error)
+          console.error(err)
+      }  
+    } 
+    getLikes();
+}, [currentArticle]);
+    
   return (
     <>
       <Navbar/>
