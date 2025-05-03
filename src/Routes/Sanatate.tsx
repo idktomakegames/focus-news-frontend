@@ -4,6 +4,7 @@ import Footer from '../Components/Footer';
 import { useEffect, useState } from 'react';
 
 type ArticleProps = {
+  _id: string,
   title: string,
   content: string,
   category: string,
@@ -45,7 +46,7 @@ export default function Sanatate() {
       <div className='flex justify-center'>
           <div className="grid gap-5" id="articlesDisplay">
             {articles?.length > 0 && (
-                <Link to={`/article/${articles[0]?.title}`} className='col-span-full'>
+                <Link to={`/article/${articles[0]?._id}`} className='col-span-full'>
                 <fieldset className="flex flex-col items-center">
                       <div className='relative w-full'>
                         <img src={articles[0].imageUrl} alt="articleImage" className='opacity-80 w-full h-[500px] object-cover border-2 border-gray-400 rounded-lg' />
@@ -53,7 +54,7 @@ export default function Sanatate() {
                       </div>                     
                 </fieldset> 
               </Link>)}
-            {articles?.map((article, index) => <Link to={`/article/${article.title}`} key={index}>
+            {articles?.map((article, index) => <Link to={`/article/${article._id}`} key={index}>
               <fieldset className="border-2 border-gray-400 h-80 rounded-lg flex flex-col items-center">
                   <img src={article.imageUrl} alt="articleImage" className='w-full h-1/2' height={400} />
                   <h1 className="text-md font-semibold p-2">{article.title}</h1>
