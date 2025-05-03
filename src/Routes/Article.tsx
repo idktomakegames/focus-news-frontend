@@ -96,7 +96,7 @@ export default function Article() {
     } 
     getLikes();
     }
-}, [currentArticle?._id]);
+}, [currentArticle?._id, currentArticle?.likes]);
     
   return (
     <>
