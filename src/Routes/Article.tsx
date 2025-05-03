@@ -54,7 +54,7 @@ export default function Article() {
       body: JSON.stringify({query: article._id})
     })
 
-    const result = await res.json();
+    await res.json();
     if(res.ok){
       navigate('/', {replace: true});
     }
