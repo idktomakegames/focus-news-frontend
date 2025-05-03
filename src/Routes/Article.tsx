@@ -81,7 +81,8 @@ export default function Article() {
   }
 
   useEffect(() => {
-    async function getLikes(){
+    if(currentArticle?._id){
+      async function getLikes(){
       try {
         const res = await fetch(`https://focus-news-backend-production.up.railway.app/total-likes/${currentArticle?._id}`);
         const result = await res.json();
@@ -94,7 +95,8 @@ export default function Article() {
       }  
     } 
     getLikes();
-}, [currentArticle]);
+    }
+}, [currentArticle?._id]);
     
   return (
     <>
