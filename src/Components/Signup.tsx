@@ -36,7 +36,7 @@ export default function Signup() {
           "Content-Type": "application/json"
         },
         credentials: "include",
-        body: JSON.stringify({username: username, email: email, password: password})
+        body: JSON.stringify({username: username.trim(), email: email, password: password})
       })
 
       const result = await res.json();
