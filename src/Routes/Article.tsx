@@ -20,8 +20,6 @@ export default function Article() {
   const [currentArticle, setCurrentArticle] = useState<ArticleProps>();
   const navigate = useNavigate();
   const logContext = useContext(LogContext)
-  const [liked, setLiked] = useState(false);
-  const [likeCount, setLikeCount] = useState(0);
 
   useEffect(() => {
     async function fetchArticle(){
@@ -36,7 +34,6 @@ export default function Article() {
         }
 
       setCurrentArticle(result);
-      setLikeCount(result.likes.length)
       } catch (err: unknown) {
         if(err instanceof Error)
           console.error(err)
@@ -61,29 +58,6 @@ export default function Article() {
       navigate('/', {replace: true});
     } 
   }
-
-  async function like(){
-    const likeState = !liked
-    try {
-      const res = await fetch(`https://focus-news-backend-production.up.railway.app/like/article`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      credentials: "include",
-      body: JSON.stringify({article: currentArticle, liked: liked})
-    })
-
-    if(res.ok){
-      setLiked(likeState)
-      setLikeCount(prev => (likeState ? prev + 1 : prev - 1));
-    }
-    
-  } catch (err: unknown) {
-      if(err instanceof Error)
-        console.error(err)
-    }
-  }
     
   return (
     <>
@@ -94,11 +68,6 @@ export default function Article() {
           <p className='self-start italic text-gray-600'>{currentArticle?.createdAt.substring(0, 10)}</p>
           <h1 className='text-3xl md:text-4xl'>{currentArticle?.title}</h1>
           <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{currentArticle?.content}</p>
-          {logContext.isLoggedIn && 
-          <div className='flex'>
-            <button onClick={like}><i className="fa-solid fa-heart text-red-700"></i></button>
-            <p className='font-extrabold'>{likeCount}</p>
-          </div>}
           {logContext.isAdmin && <button type='button' onClick={() => deleteArticle(currentArticle!)} className='bg-red-700 text-white rounded-lg mb-3 p-1'>Delete Article</button>}
         </div>   
       </div>
