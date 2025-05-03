@@ -36,6 +36,7 @@ export default function Article() {
         }
 
       setCurrentArticle(result);
+      setLikeCount(result.likes)
       } catch (err: unknown) {
         if(err instanceof Error)
           console.error(err)
@@ -73,30 +74,12 @@ export default function Article() {
     })
 
     setLiked(likeState)
-
+    setLikeCount(prev => prev + (likeState ? 1 : -1));
   } catch (err: unknown) {
       if(err instanceof Error)
         console.error(err)
     }
   }
-
-  useEffect(() => {
-    if(currentArticle?._id){
-      async function getLikes(){
-      try {
-        const res = await fetch(`https://focus-news-backend-production.up.railway.app/total-likes/${currentArticle?._id}`);
-        const result = await res.json();
-        if(res.ok){
-          setLikeCount(result)
-        }      
-      } catch (err: unknown) {
-        if(err instanceof Error)
-          console.error(err)
-      }  
-    } 
-    getLikes();
-    }
-}, [currentArticle?._id, currentArticle?.likes]);
     
   return (
     <>
