@@ -59,7 +59,6 @@ export default function Article() {
       navigate('/', {replace: true});
     }
 
-    console.log(result);
     
   }
 
@@ -72,6 +71,10 @@ export default function Article() {
           <p className='self-start italic text-gray-600'>{currentArticle?.createdAt.substring(0, 10)}</p>
           <h1 className='text-3xl md:text-4xl'>{currentArticle?.title}</h1>
           <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{currentArticle?.content}</p>
+          <div>
+            <i className="fa-solid fa-heart"></i>
+            <p>0</p>
+          </div>
           {logContext.isAdmin && <button type='button' onClick={() => deleteArticle(currentArticle!)} className='bg-red-700 text-white rounded-lg mb-3 p-1'>Delete Article</button>}
         </div>   
       </div>
