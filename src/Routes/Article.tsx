@@ -72,8 +72,8 @@ export default function Article() {
           <h1 className='text-3xl md:text-4xl'>{currentArticle?.title}</h1>
           <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{currentArticle?.content}</p>
           <div>
-            <i className="fa-solid fa-heart"></i>
-            <p className='text-3xl font-extrabold'>0</p>
+            <i className="fa-solid fa-heart bg-white border-black border"></i>
+            <p className='font-extrabold'>0</p>
           </div>
           {logContext.isAdmin && <button type='button' onClick={() => deleteArticle(currentArticle!)} className='bg-red-700 text-white rounded-lg mb-3 p-1'>Delete Article</button>}
         </div>   
