@@ -11,7 +11,7 @@ type ArticleProps = {
   category: string,
   imageUrl: string,
   createdAt: string,
-  likes: number
+  likes: string[]
 }
 
 export default function Article() {
@@ -36,7 +36,7 @@ export default function Article() {
         }
 
       setCurrentArticle(result);
-      setLikeCount(result.likes)
+      setLikeCount(result.likes.length)
       } catch (err: unknown) {
         if(err instanceof Error)
           console.error(err)
@@ -70,6 +70,7 @@ export default function Article() {
       headers: {
         "Content-Type": "application/json"
       },
+      credentials: "include",
       body: JSON.stringify({article: currentArticle, liked: liked})
     })
 
