@@ -12,6 +12,7 @@ import Login from './Components/Login';
 import ResetPassword from './Routes/ResetPassword';
 import Signup from './Components/Signup';
 import About from './Routes/About';
+import Privacy from './Routes/Privacy';
 import Admin from './Components/Admin';
 import { createContext, Dispatch, SetStateAction, useEffect, useState } from 'react';
 import ChangePassword from './Routes/ChangePassword';
@@ -98,6 +99,7 @@ function App() {
         <Route path='/profile' element={<Profile />}/>
         <Route path='/admin' element={<Admin />}/>
         <Route path='/cookies' element={<Cookies />}/>
+        <Route path='/privacy' element={<Privacy />}/>
         <Route path='/search/:query' element={<Search />} />
         <Route path='*' element={<NotFound />} />
       </Routes>

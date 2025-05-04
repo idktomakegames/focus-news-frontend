@@ -80,6 +80,12 @@ export default function Signup() {
             <p className='text-red-500 text-sm font-bold'>{error}</p>
             <p className='text-green-500 text-sm font-bold'>{success}</p>
             <button type='submit' className='bg-blue-500 text-white hover:bg-blue-400 rounded-xl p-1 w-full text-md'>Sign up</button>
+            <div>
+              <input type="checkbox" id='consent' required />
+                <label htmlFor="consent" className="text-sm ml-1">
+        Accept <Link to={'/cookies'} className="text-blue-500 hover:text-blue-400 underline">Cookies</Link> și Termenii & Condițiile.
+              </label>  
+            </div>
             <p>Ai deja cont? <Link className='text-blue-500 font-semibold hover:text-blue-400' to='/login'>Sign in</Link></p>
           </fieldset>
         </form>
