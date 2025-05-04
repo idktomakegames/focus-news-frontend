@@ -42,11 +42,6 @@ export default function Profile() {
       setError('Completează cel puțin unul dintre câmpuri pentru a continua');
       return;
     }
-
-    if(!updatedEmail.includes("@") && updatedEmail.length < 10){
-      setError('Invalid email');
-      return;
-    }
     
     try {
       const res = await fetch(`https://focus-news-backend-production.up.railway.app/update`, {
@@ -62,6 +57,7 @@ export default function Profile() {
   
       if(res.ok){
         setSuccess(result)
+        logContext.setGlobalUser(result.username)
         setTimeout(() => {
           window.location.reload();
         }, 1000)   
@@ -90,8 +86,8 @@ export default function Profile() {
             <i className="fa-solid fa-circle-user text-8xl"></i>
             <input className='p-1 rounded-lg border border-gray-700' type="text" placeholder='update username' onChange={(e) => setUpdatedUsername(e.target.value)} />
             <input className='p-1 rounded-lg border border-gray-700' type="email" placeholder='update email' onChange={(e) => setUpdatedEmail(e.target.value)} />
-            <p className='text-green-700 font-bold'>{success}</p>
-            <p className='text-red-700 font-bold'>{error}</p>
+            <p className='text-green-700 font-bold text-sm'>{success}</p>
+            <p className='text-red-700 font-bold text-sm'>{error}</p>
             <button type='submit' className='p-1 bg-blue-600 text-white rounded-lg'>Update Info</button>
             <button type='button' className='bg-red-700 hover:bg-red-600 text-white rounded-lg p-1 w-full' onClick={logout}>Log out</button>
           </fieldset>
