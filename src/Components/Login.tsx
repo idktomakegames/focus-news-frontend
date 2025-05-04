@@ -44,7 +44,8 @@ export default function Login() {
       if(res.ok){
         setSuccess(result)
         setTimeout(() => {
-          logContext.setIsLoggedIn(true)  
+          logContext.setIsLoggedIn(true)
+          window.location.reload()  
         }, 2000)    
       }
       
