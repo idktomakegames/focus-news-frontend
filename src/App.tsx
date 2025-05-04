@@ -15,6 +15,7 @@ import About from './Routes/About';
 import Admin from './Components/Admin';
 import { createContext, Dispatch, SetStateAction, useEffect, useState } from 'react';
 import ChangePassword from './Routes/ChangePassword';
+import Cookies from './Routes/Cookies';
 
 type LogProps = {
   isLoggedIn: boolean,
@@ -96,6 +97,7 @@ function App() {
         <Route path='/about-us' element={<About/>}/>
         <Route path='/profile' element={<Profile />}/>
         <Route path='/admin' element={<Admin />}/>
+        <Route path='/cookies' element={<Cookies />}/>
         <Route path='/search/:query' element={<Search />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
