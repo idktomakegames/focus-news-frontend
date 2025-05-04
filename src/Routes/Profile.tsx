@@ -63,7 +63,7 @@ export default function Profile() {
       if(res.ok){
         setSuccess(result)
         setTimeout(() => {
-          navigate('/login')
+          logout()
         }, 1000)   
       }
       
