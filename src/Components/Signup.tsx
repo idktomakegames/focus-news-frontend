@@ -90,7 +90,7 @@ export default function Signup() {
           </fieldset>
         </form>
 
-        <details className='text-center'>
+        <details className='text-center mb-14'>
           <summary className='text-xl font-serif'>
             Ai probleme cu autentificarea?
           </summary>
