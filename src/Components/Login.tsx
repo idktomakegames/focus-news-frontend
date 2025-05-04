@@ -81,7 +81,7 @@ export default function Login() {
           </fieldset>
         </form>
         
-        <details className='text-center mb-14'>
+        <details className='text-center max-[868px]:mb-14'>
           <summary className='text-xl font-serif'>
             Ai probleme cu autentificarea?
           </summary>
