@@ -62,7 +62,10 @@ export default function Profile() {
   
       if(res.ok){
         setSuccess(result)
-        logout()
+        setTimeout(() => {
+          logout()
+        }, 2000)
+        
       }
       
     } catch (err: unknown) {
