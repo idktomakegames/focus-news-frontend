@@ -64,7 +64,7 @@ export default function Profile() {
         setSuccess(result)
         logContext.setGlobalUser(result.username)
         setTimeout(() => {
-          window.location.reload();
+          navigate('/')
         }, 1000)   
       }
       
