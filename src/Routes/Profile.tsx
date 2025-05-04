@@ -53,7 +53,12 @@ export default function Profile() {
         body: JSON.stringify({username: updatedUsername || undefined, email: updatedEmail || undefined})
       });
   
-      const result = await res.json()
+      const result = await res.json();
+
+      if(!res.ok){
+        setError(result.message)
+        return;
+      }
   
       if(res.ok){
         setSuccess(result)
