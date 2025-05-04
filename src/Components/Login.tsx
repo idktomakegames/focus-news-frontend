@@ -80,7 +80,25 @@ export default function Login() {
             <p>Nu ai cont? <Link className='text-blue-500 font-semibold hover:text-blue-400' to='/signup'>Sign up</Link></p>
           </fieldset>
         </form>
+        
+        <details className='text-center'>
+          <summary className='text-xl font-serif'>
+            Ai probleme cu autentificarea?
+          </summary>
+          <div className='flex flex-col items-center'>
+          <p className='w-9/12 xl:w-1/3 text-start my-2 '>
+              Pentru cea mai bună experiență, asigură-te că modulele cookie sunt activate în setările browserului. Dacă întâmpini probleme la autentificare sau înregistrare:
+              <br/>
+              <strong>Pe iPhone (Safari):</strong> Setări → Safari → Dezactivează „Blochează toate modulele cookie” și „Previne urmărirea între site-uri”.
+              <br/>
+              <strong>Pe Android (Chrome):</strong> Setări site → Module cookie → Activează modulele cookie.
+              <br/>
+              Unele setări ale browserului pot bloca modulele cookie, care sunt esențiale pentru autentificare.
+          </p>
+          </div>
+        </details>    
       </div>
+      
       </div>
     </>
   )

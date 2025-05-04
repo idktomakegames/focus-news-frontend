@@ -68,7 +68,7 @@ export default function Signup() {
           <img src="/logo.png" width={700} height={400} alt="logo picture" id='logo'/>
         </div>
         <div className='flex flex-col items-center justify-center w-1/2' id='signupDiv2'>
-        <form onSubmit={(e) => onSubmit(e)} className='my-10'>
+        <form onSubmit={(e) => onSubmit(e)} className='my-7'>
           <fieldset className='border rounded-lg border-gray-400 p-6 md:p-10 flex flex-col gap-5 items-center bg-gray-100'>
             <legend className='text-center text-5xl font-semibold'>
               Autentificare
@@ -89,6 +89,23 @@ export default function Signup() {
             <p>Ai deja cont? <Link className='text-blue-500 font-semibold hover:text-blue-400' to='/login'>Sign in</Link></p>
           </fieldset>
         </form>
+
+        <details className='text-center'>
+          <summary className='text-xl font-serif'>
+            Ai probleme cu autentificarea?
+          </summary>
+          <div className='flex flex-col items-center'>
+          <p className='w-9/12 xl:w-1/3 text-start my-2 '>
+              Pentru cea mai bună experiență, asigură-te că modulele cookie sunt activate în setările browserului. Dacă întâmpini probleme la autentificare sau înregistrare:
+              <br/>
+              <strong>Pe iPhone (Safari):</strong> Setări → Safari → Dezactivează „Blochează toate modulele cookie” și „Previne urmărirea între site-uri”.
+              <br/>
+              <strong>Pe Android (Chrome):</strong> Setări site → Module cookie → Activează modulele cookie.
+              <br/>
+              Unele setări ale browserului pot bloca modulele cookie, care sunt esențiale pentru autentificare.
+          </p>
+          </div>
+        </details> 
       </div>
       </div>
     </>

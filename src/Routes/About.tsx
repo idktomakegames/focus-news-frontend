@@ -5,8 +5,8 @@ export default function About() {
   return (
     <>
     <Navbar/>
-    <h1 className='text-center text-5xl font-semibold py-10'>Despre noi</h1>
-    <div className='flex justify-center mt-10'>
+    <h1 className='text-center text-4xl md:text-5xl font-semibold py-10'>Despre noi</h1>
+    <div className='flex justify-center'>
         <div className='flex flex-col items-center bg-gray-100 py-12 px-5 rounded-lg p-auto w-1/3 md:py-16' id='aboutContainer'>
             <h2 className="text-xl">
                 Dragă cititorule,
