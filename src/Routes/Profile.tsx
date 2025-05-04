@@ -92,7 +92,7 @@ export default function Profile() {
             <input className='p-1 rounded-lg border border-gray-700' type="email" placeholder='update email' onChange={(e) => setUpdatedEmail(e.target.value)} />
             <p className='text-green-700 font-bold'>{success}</p>
             <p className='text-red-700 font-bold'>{error}</p>
-            <button type='submit'>Update Info</button>
+            <button type='submit' className='p-1 bg-blue-600 text-white rounded-lg'>Update Info</button>
             <button type='button' className='bg-red-700 hover:bg-red-600 text-white rounded-lg p-1 w-full' onClick={logout}>Log out</button>
           </fieldset>
         </form>
