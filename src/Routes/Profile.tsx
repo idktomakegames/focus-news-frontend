@@ -39,7 +39,7 @@ export default function Profile() {
     setSuccess('')
 
     if (!updatedUsername && !updatedEmail) {
-      setError('Please provide at least one field to update.');
+      setError('Completează cel puțin unul dintre câmpuri pentru a continua');
       return;
     }
 
@@ -90,8 +90,8 @@ export default function Profile() {
             <i className="fa-solid fa-circle-user text-8xl"></i>
             <input className='p-1 rounded-lg border border-gray-700' type="text" placeholder='update username' onChange={(e) => setUpdatedUsername(e.target.value)} />
             <input className='p-1 rounded-lg border border-gray-700' type="email" placeholder='update email' onChange={(e) => setUpdatedEmail(e.target.value)} />
-            <p className='bg-green-700 hover:bg-green-600 font-bold'>{success}</p>
-            <p className='bg-red-700 hover:bg-red-600 font-bold'>{error}</p>
+            <p className='text-green-700 font-bold'>{success}</p>
+            <p className='text-red-700 font-bold'>{error}</p>
             <button type='submit'>Update Info</button>
             <button type='button' className='bg-red-700 hover:bg-red-600 text-white rounded-lg p-1 w-full' onClick={logout}>Log out</button>
           </fieldset>
