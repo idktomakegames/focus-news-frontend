@@ -6,7 +6,7 @@ export default function Cookies() {
     <>
     <Navbar/>
     <h1 className='text-center text-5xl font-semibold py-10'>Politica de Cookies</h1>
-    <div className='flex justify-center mt-10'>
+    <div className='flex justify-center gap-5 mt-10'>
         <div className='flex flex-col items-center bg-gray-100 py-12 px-5 rounded-lg p-auto w-1/3 md:py-16' id='aboutContainer'>
             <h2 className="text-xl">
                 Politica de Cookies
