@@ -27,7 +27,7 @@ export default function Navbar() {
               <li className="cursor-pointer"><Link to={'/'}>General</Link></li>
               <li className="cursor-pointer"><Link to={'/category/economie'}>Economie</Link></li>
               <li className="cursor-pointer"><Link to={'/category/infrastructura'}>Infrastructură</Link></li>
-              <li className="cursor-pointer"><Link to={'/category/infrastructura'}>Politică</Link></li>
+              <li className="cursor-pointer"><Link to={'/category/politica'}>Politică</Link></li>
               <li className="cursor-pointer"><Link to={'/category/sanatate'}>Sănătate</Link></li>
               <li className="cursor-pointer"><Link to={'/category/tragedii'}>Tragedii</Link></li>
             </div>

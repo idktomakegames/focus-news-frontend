@@ -7,6 +7,7 @@ import Tragedii from './Routes/Tragedii';
 import NotFound from './Routes/NotFound';
 import Article from './Routes/Article';
 import Profile from './Routes/Profile';
+import Politica from './Routes/Politica';
 import Search from './Routes/Search';
 import Login from './Components/Login';
 import ResetPassword from './Routes/ResetPassword';
@@ -88,6 +89,7 @@ function App() {
         <Route path='/' element={<General />}/>
         <Route path='/category/economie' element={<Economie />}/>
         <Route path='/category/infrastructura' element={<Infrastructura />}/>
+        <Route path='/category/politica' element={<Politica />}/>
         <Route path='/category/sanatate' element={<Sanatate />}/>
         <Route path='/category/tragedii' element={<Tragedii />}/>
         <Route path='/article/:id' element={<Article />} />
