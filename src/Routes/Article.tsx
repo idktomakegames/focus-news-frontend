@@ -11,7 +11,7 @@ type ArticleProps = {
   category: string,
   imageUrl: string,
   createdAt: string,
-  likes: string[]
+  views: number
 }
 
 export default function Article() {
@@ -62,6 +62,7 @@ export default function Article() {
   return (
     <>
       <Navbar/>
+      <p>{currentArticle?.views}</p>
       <div className='flex justify-center mt-20' id='articleDiv'>
         <div className='flex flex-col items-center w-1/3 gap-8' id='innerArticleDiv'>
           <img src={currentArticle?.imageUrl} width={700} height={700} alt="articleImage" />
