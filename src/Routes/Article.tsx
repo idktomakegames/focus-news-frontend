@@ -67,7 +67,7 @@ export default function Article() {
           <img src={currentArticle?.imageUrl} width={700} height={700} alt="articleImage" />
           <div className='flex justify-between'>
             <p className='self-start italic text-gray-600'>{currentArticle?.createdAt.substring(0, 10)}</p> 
-            <div className='flex gap-1'>
+            <div className='flex gap-1 items-center'>
               <i className="fa-regular fa-eye"></i>
               <p className='font-mono'>{currentArticle?.views}</p>
           </div>
