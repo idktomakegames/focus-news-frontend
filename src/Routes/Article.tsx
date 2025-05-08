@@ -65,7 +65,7 @@ export default function Article() {
       <div className='flex justify-center mt-20' id='articleDiv'>
         <div className='flex flex-col items-center w-1/3 gap-8' id='innerArticleDiv'>
           <img src={currentArticle?.imageUrl} width={700} height={700} alt="articleImage" />
-          <div className='flex justify-between w-full'>
+          <div className='flex justify-around w-full'>
             <p className='self-start italic text-gray-600'>{currentArticle?.createdAt.substring(0, 10)}</p> 
             <div className='flex gap-1 items-center'>
               <i className="fa-regular fa-eye"></i>
