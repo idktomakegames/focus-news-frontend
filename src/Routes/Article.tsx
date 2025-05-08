@@ -62,7 +62,7 @@ export default function Article() {
   return (
     <>
       <Navbar/>
-      <div className='absolute top-10 right-10'>
+      <div className='flex absolute right-10'>
         <i className="fa-regular fa-eye"></i>
         <p className='font-mono'>{currentArticle?.views}</p>
       </div>
