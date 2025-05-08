@@ -11,7 +11,7 @@ type ArticleProps = {
   imageUrl: string
 }
 
-export default function Administratie() {
+export default function General() {
 
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
@@ -43,7 +43,7 @@ export default function Administratie() {
     return (
       <>
       <Navbar/>
-      <h1 className='text-center text-4xl md:text-5xl font-semibold py-10'>Administrație/Home</h1>
+      <h1 className='text-center text-4xl md:text-5xl font-semibold py-10'>General</h1>
       <div className='flex justify-center'>
           <div className="grid gap-5" id="articlesDisplay">
             {articles?.length > 0 && (

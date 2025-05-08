@@ -24,9 +24,10 @@ export default function Navbar() {
             </div>
             <i className="fa-solid fa-bars cursor-pointer" id='menuBtn' onClick={() => setSidebarDisplay(true)}></i>
             <div className="flex gap-20 ml-auto" id='navbarSections'>
-              <li className="cursor-pointer"><Link to={'/'}>Administrație</Link></li>
+              <li className="cursor-pointer"><Link to={'/'}>General</Link></li>
               <li className="cursor-pointer"><Link to={'/category/economie'}>Economie</Link></li>
               <li className="cursor-pointer"><Link to={'/category/infrastructura'}>Infrastructură</Link></li>
+              <li className="cursor-pointer"><Link to={'/category/infrastructura'}>Politică</Link></li>
               <li className="cursor-pointer"><Link to={'/category/sanatate'}>Sănătate</Link></li>
               <li className="cursor-pointer"><Link to={'/category/tragedii'}>Tragedii</Link></li>
             </div>

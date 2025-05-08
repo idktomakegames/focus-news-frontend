@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import Administratie from './Routes/Administratie';
+import General from './Routes/General';
 import Economie from './Routes/Economie';
 import Infrastructura from './Routes/Infrastructura';
 import Sanatate from './Routes/Sanatate';
@@ -85,7 +85,7 @@ function App() {
     <>
       <LogContext.Provider value={{isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin, globalUser, setGlobalUser, checked, setChecked}}>
       <Routes>
-        <Route path='/' element={<Administratie />}/>
+        <Route path='/' element={<General />}/>
         <Route path='/category/economie' element={<Economie />}/>
         <Route path='/category/infrastructura' element={<Infrastructura />}/>
         <Route path='/category/sanatate' element={<Sanatate />}/>
