@@ -61,9 +61,10 @@ export default function Navbar() {
                 <input type="text" required placeholder='search' className='border border-gray-400 w-full p-1 outline-gray-400 rounded-sm text-black' onChange={(e) => setSearchbarQuery(e.target.value)} />
                 <button type='submit' style={{display: "none"}}> <i className="fa-solid fa-magnifying-glass"/></button>
               </form>
-              <li className="cursor-pointer"><Link className='text-xl' onClick={() => setSidebarDisplay(false)} to={'/'}>Administrație</Link></li>
+              <li className="cursor-pointer"><Link className='text-xl' onClick={() => setSidebarDisplay(false)} to={'/'}>General</Link></li>
               <li className="cursor-pointer"><Link className='text-xl' onClick={() => setSidebarDisplay(false)} to={'/category/economie'}>Economie</Link></li>
               <li className="cursor-pointer"><Link className='text-xl' onClick={() => setSidebarDisplay(false)} to={'/category/infrastructura'}>Infrastructură</Link></li>
+              <li className="cursor-pointer"><Link className='text-xl' onClick={() => setSidebarDisplay(false)} to={'/category/politica'}>Politică</Link></li>
               <li className="cursor-pointer"><Link className='text-xl' onClick={() => setSidebarDisplay(false)} to={'/category/sanatate'}>Sănătate</Link></li>
               <li className="cursor-pointer"><Link className='text-xl' onClick={() => setSidebarDisplay(false)} to={'/category/tragedii'}>Tragedii</Link></li>
               <img src="/logo.png" width={200} height={200} alt="logo picture" id='logo' />
