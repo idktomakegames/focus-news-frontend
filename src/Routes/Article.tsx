@@ -62,14 +62,17 @@ export default function Article() {
   return (
     <>
       <Navbar/>
-      <div className='flex absolute right-10'>
-        <i className="fa-regular fa-eye"></i>
-        <p className='font-mono'>{currentArticle?.views}</p>
-      </div>
       <div className='flex justify-center mt-20' id='articleDiv'>
         <div className='flex flex-col items-center w-1/3 gap-8' id='innerArticleDiv'>
           <img src={currentArticle?.imageUrl} width={700} height={700} alt="articleImage" />
-          <p className='self-start italic text-gray-600'>{currentArticle?.createdAt.substring(0, 10)}</p>      
+          <div className='flex justify-between'>
+            <p className='self-start italic text-gray-600'>{currentArticle?.createdAt.substring(0, 10)}</p> 
+            <div className='flex gap-1'>
+              <i className="fa-regular fa-eye"></i>
+              <p className='font-mono'>{currentArticle?.views}</p>
+          </div>
+          </div>
+               
           <h1 className='text-3xl md:text-4xl'>{currentArticle?.title}</h1>
           <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{currentArticle?.content}</p>
           {logContext.isAdmin && <button type='button' onClick={() => deleteArticle(currentArticle!)} className='bg-red-700 text-white rounded-lg mb-3 p-1'>Delete Article</button>}
