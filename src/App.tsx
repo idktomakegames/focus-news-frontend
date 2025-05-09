@@ -27,7 +27,9 @@ type LogProps = {
   globalUser: string,
   setGlobalUser: Dispatch<SetStateAction<string>>,
   checked: boolean,
-  setChecked: Dispatch<SetStateAction<boolean>>
+  setChecked: Dispatch<SetStateAction<boolean>>,
+  gEmail: string, 
+  setGemail: Dispatch<SetStateAction<string>>
 }
 
 export const LogContext = createContext<LogProps>({
@@ -38,7 +40,9 @@ export const LogContext = createContext<LogProps>({
   globalUser: '',
   setGlobalUser: () => {},
   checked: false,
-  setChecked: () => {}
+  setChecked: () => {},
+  gEmail: '', 
+  setGemail: () => {}
 })
 
 function App() {
@@ -46,6 +50,7 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false)
   const [globalUser, setGlobalUser] = useState('');
   const [checked, setChecked] = useState(false);
+  const [gEmail, setGemail] = useState('');
 
   useEffect(() => {
     async function checkLogIn(){
@@ -60,6 +65,7 @@ function App() {
         if(res.ok){
           setIsLoggedIn(true)
           setGlobalUser(result.username);
+          setGemail(result.email)
         } else {
           setIsLoggedIn(false)
           setGlobalUser('');
@@ -84,7 +90,7 @@ function App() {
 
   return (
     <>
-      <LogContext.Provider value={{isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin, globalUser, setGlobalUser, checked, setChecked}}>
+      <LogContext.Provider value={{isLoggedIn, setIsLoggedIn, isAdmin, setIsAdmin, globalUser, setGlobalUser, checked, setChecked, gEmail, setGemail}}>
       <Routes>
         <Route path='/' element={<General />}/>
         <Route path='/category/economie' element={<Economie />}/>
