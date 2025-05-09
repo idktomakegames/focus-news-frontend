@@ -22,7 +22,7 @@ export default function Navbar() {
             <div>
               <img className='absolute top-0' src="/logo.png" width={120} height={120} alt="logo picture" id='logo' />
             </div>
-            <i className="fa-solid fa-bars cursor-pointer" id='menuBtn' onClick={() => setSidebarDisplay(true)}></i>
+            <i className="fa-solid fa-bars cursor-pointer -translate-x-2" id='menuBtn' onClick={() => setSidebarDisplay(true)}></i>
             <div className="flex gap-20 ml-auto" id='navbarSections'>
               <li className="cursor-pointer"><Link to={'/'}>General</Link></li>
               <li className="cursor-pointer"><Link to={'/category/economie'}>Economie</Link></li>
