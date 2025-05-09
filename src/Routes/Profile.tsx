@@ -81,7 +81,7 @@ export default function Profile() {
             <legend className='text-center text-4xl md:text-5xl font-semibold'>
               Profil
             </legend>
-            <h1 className='text-3xl font-semibold pb-5'>Bine ai revenit {logContext.globalUser ? logContext.globalUser : ""}!</h1>
+            <h1 className='text-2xl md:text-3xl font-semibold pb-5'>Bine ai revenit {logContext.globalUser ? logContext.globalUser : ""}!</h1>
             <i className="fa-solid fa-circle-user text-8xl"></i>
             <input className='p-1 rounded-lg border border-gray-700' type="text" placeholder='update username' onChange={(e) => setUpdatedUsername(e.target.value)} />
             <input className='p-1 rounded-lg border border-gray-700' type="email" placeholder='update email' onChange={(e) => setUpdatedEmail(e.target.value)} />
