@@ -55,7 +55,7 @@ export default function Navbar() {
 
         {sidebarDisplay ? (
           <div id='sidebar' style={{zIndex: 99}} className='fixed top-0 left-0 text-white bg-blue-950 h-full flex justify-center'>
-          <ul className='flex flex-col items-center gap-16 w-full'>
+          <ul className='flex flex-col items-center gap-12 w-full'>
               <button className='text-3xl mt-5 pr-5 self-end' onClick={() => setSidebarDisplay(false)}>X</button>
               <form onSubmit={onSubmit} className='flex justify-end'>
                 <input type="text" required placeholder='search' className='border border-gray-400 w-full p-1 outline-gray-400 rounded-sm text-black' onChange={(e) => setSearchbarQuery(e.target.value)} />
