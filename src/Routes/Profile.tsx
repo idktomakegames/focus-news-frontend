@@ -38,7 +38,7 @@ export default function Profile() {
     setError('')
 
     if (!updatedUsername && !updatedEmail) {
-      setError('Completează cel puțin unul dintre câmpuri pentru a continua');
+      setError('Completează unul dintre câmpuri pentru a continua');
       return;
     }
     
