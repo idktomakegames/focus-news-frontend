@@ -67,7 +67,7 @@ export default function Signup() {
           <Link to='/' replace className='self-start absolute top-0 left-0 text-gray-300 opacity-40 hover:text-gray-100 p-3'>&lt;--</Link>
           <img src="/logo.png" width={700} height={400} alt="logo picture" id='logo'/>
         </div>
-        <div className='flex flex-col items-center justify-center w-1/2 overflow-scroll' id='signupDiv2'>
+        <div className='flex flex-col items-center justify-center w-1/2 lg:overflow-scroll' id='signupDiv2'>
         <form onSubmit={(e) => onSubmit(e)} className='my-7'>
           <fieldset className='border rounded-lg border-gray-400 p-6 md:p-10 flex flex-col gap-5 items-center bg-gray-100'>
             <legend className='text-center text-5xl font-semibold'>
