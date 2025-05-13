@@ -1,6 +1,7 @@
 import { useEffect, useContext, useState } from 'react';
 import { LogContext } from '../App';
 import { useNavigate, Link } from 'react-router-dom';
+import profileIcon from '../assets/circle-user-solid.svg'
 
 export default function Profile() {
 
@@ -82,7 +83,7 @@ export default function Profile() {
               Profil
             </legend>
             <h1 className='text-2xl md:text-3xl font-semibold pb-5'>Bine ai revenit!</h1>
-            <i className="fa-solid fa-circle-user text-8xl"></i>
+            <img src={profileIcon} alt='profileIcon' className="w-5 text-8xl"/>
             <input className='p-1 rounded-lg border border-gray-700' type="text" placeholder={logContext.globalUser ? logContext.globalUser : "update username"} onChange={(e) => setUpdatedUsername(e.target.value)} />
             <input className='p-1 rounded-lg border border-gray-700' type="email" placeholder={logContext.gEmail? logContext.gEmail : "update email"} onChange={(e) => setUpdatedEmail(e.target.value)} />
             <p className='text-red-700 font-bold text-sm'>{error}</p>

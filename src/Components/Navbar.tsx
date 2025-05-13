@@ -1,6 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useContext } from 'react';
 import { LogContext } from '../App';
+import userIcon from '../assets/user-solid.svg';
+import adminIcon from '../assets/plus-solid.svg';
+import menuIcon from '../assets/bars-solid.svg';
+import searchIcon from '../assets/magnifying-glass-solid.svg';
 
 export default function Navbar() {
 
@@ -22,7 +26,7 @@ export default function Navbar() {
             <div>
               <img className='absolute top-0' src="/logo.png" width={120} height={120} alt="logo picture" id='logo' />
             </div>
-            <i className="fa-solid fa-bars cursor-pointer -translate-x-2" id='menuBtn' onClick={() => setSidebarDisplay(true)}></i>
+            <img src={menuIcon} alt='menu' className="filter invert w-4 cursor-pointer -translate-x-2" id='menuBtn' onClick={() => setSidebarDisplay(true)} />
             <div className="flex gap-20 ml-auto" id='navbarSections'>
               <li className="cursor-pointer"><Link to={'/'}>General</Link></li>
               <li className="cursor-pointer"><Link to={'/category/economie'}>Economie</Link></li>
@@ -41,12 +45,12 @@ export default function Navbar() {
                 </form>
               </div>
               : 
-              <i id='searchBar' className="fa-solid fa-magnifying-glass cursor-pointer absolute right-20"
-              onClick={(() => setDisplaySearchbar(true))}></i> }   
-              <Link className='cursor-pointer absolute right-10 mr-2' to={'/profile'}><i className="fa-solid fa-user"></i></Link>
+              <img src={searchIcon} alt='searchBar' id='searchBar' className="filter invert w-5 cursor-pointer absolute right-20"
+              onClick={(() => setDisplaySearchbar(true))}/> }   
+              <Link className='cursor-pointer absolute right-10 mr-2' to={'/profile'}><img src={userIcon} alt='profile' className='filter invert w-4' /></Link>
               {logContext.isAdmin ? (
                 <Link to="/admin" className='absolute right-2 mr-2'>
-                  <i className="fa-solid fa-plus"></i>
+                  <img src={adminIcon} alt="admin" className='filter invert w-4' />
                 </Link>
               ) : null}      
             </div>     

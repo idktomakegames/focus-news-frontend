@@ -3,6 +3,7 @@ import { LogContext } from '../App';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import { useParams, useNavigate } from 'react-router-dom';
+import eyeImg from '../assets/eye-regular.svg'
 
 type ArticleProps = {
   _id: string,
@@ -68,7 +69,7 @@ export default function Article() {
           <div className='flex justify-between w-full'>
             <p className='self-start italic text-gray-600'>{currentArticle?.createdAt.substring(0, 10)}</p> 
             <div className='flex gap-1 items-center'>
-              <i className="fa-regular fa-eye"></i>
+              <img src={eyeImg} alt='views' className="w-3"/>
               <p className='font-mono'>{currentArticle?.views}</p>
           </div>
           </div>          
