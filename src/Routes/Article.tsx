@@ -69,7 +69,7 @@ export default function Article() {
           <div className='flex justify-between w-full'>
             <p className='self-start italic text-gray-600'>{currentArticle?.createdAt.substring(0, 10)}</p> 
             <div className='flex gap-1 items-center'>
-              <img src={eyeImg} alt='views' className="w-3"/>
+              <img src={eyeImg} alt='views' className="w-4"/>
               <p className='font-mono'>{currentArticle?.views}</p>
           </div>
           </div>          
