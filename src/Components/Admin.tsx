@@ -115,7 +115,7 @@ export default function Admin() {
                 <label className='text-lg font-semibold'>Alege o categorie: </label>
                 <select name="categories" defaultValue="categorie" className='p-1 rounded-lg border border-gray-400' onChange={(e) => setCategory(e.target.value)} >
                     <option value="categorie" disabled>Categorie</option>
-                    <option value="politica">General</option>
+                    <option value="general">General</option>
                     <option value="economie">Economie</option>
                     <option value="infrastructura">Infrastructură</option>
                     <option value="politica">Politică</option>
