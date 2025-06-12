@@ -78,7 +78,7 @@ export default function Article() {
           <>
             <input type="text" className='bg-gray-100 border border-gray-500 p-1 rounded-lg w-full' placeholder='title' defaultValue={currentArticle?.title} />
             <textarea className='bg-gray-100 border border-gray-500 p-1 rounded-lg w-full overflow-y-auto' placeholder='content' defaultValue={currentArticle?.content}></textarea>
-            <div>
+            <div className='flex gap-3'>
               <button type='button' onClick={() => setIsEditing(true)} className='bg-green-700 text-white rounded-lg mb-3 p-1'>Save</button>
               <button type='button' onClick={() => setIsEditing(false)} className='bg-red-700 text-white rounded-lg mb-3 p-1'>Exit</button>
             </div>       
@@ -87,7 +87,7 @@ export default function Article() {
           <>
             <h1 className='text-3xl md:text-4xl'>{currentArticle?.title}</h1>
             <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{currentArticle?.content}</p>
-            <div>
+            <div className='flex gap-3'>
               {logContext.isAdmin && <button type='button' onClick={() => deleteArticle(currentArticle!)} className='bg-red-700 text-white rounded-lg mb-3 p-1'>Delete Article</button>}
               {logContext.isAdmin && <button type='button' onClick={() => setIsEditing(true)} className='bg-blue-700 text-white rounded-lg mb-3 p-1'>Edit Article</button>}
             </div>      
