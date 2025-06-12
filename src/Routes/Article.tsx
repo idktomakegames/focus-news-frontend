@@ -75,6 +75,7 @@ export default function Article() {
     setError('');
     if(title === currentArticle?.title || content === currentArticle?.content){
       setError("Nu au fost făcute modificări")
+      return;
     }
 
     try {
