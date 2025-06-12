@@ -20,8 +20,8 @@ export default function Article() {
   const { id } = useParams();
   const [currentArticle, setCurrentArticle] = useState<ArticleProps>();
   const [isEditing, setIsEditing] = useState(false)
-  const [title, setTitle] = useState(currentArticle?.title)
-  const [content, setContent] = useState(currentArticle?.content)
+  const [title, setTitle] = useState("")
+  const [content, setContent] = useState("")
   const navigate = useNavigate();
   const logContext = useContext(LogContext)
 
@@ -38,6 +38,8 @@ export default function Article() {
         }
 
       setCurrentArticle(result);
+      setTitle(currentArticle?.title!)
+      setContent(currentArticle?.content!)
       } catch (err: unknown) {
         if(err instanceof Error)
           console.error(err)
