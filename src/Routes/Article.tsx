@@ -73,7 +73,7 @@ export default function Article() {
 
   async function updateArticle(article: ArticleProps){
     setError('');
-    if(title.trim() === currentArticle?.title.trim() || content.trim() === currentArticle?.content.trim()){
+    if(title.trim() === currentArticle?.title.trim() && content.trim() === currentArticle?.content.trim()){
       setError("Nu au fost făcute modificări")
       return;
     }
