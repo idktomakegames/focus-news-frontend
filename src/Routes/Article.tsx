@@ -20,6 +20,8 @@ export default function Article() {
   const { id } = useParams();
   const [currentArticle, setCurrentArticle] = useState<ArticleProps>();
   const [isEditing, setIsEditing] = useState(false)
+  const [title, setTitle] = useState(currentArticle?.title)
+  const [content, setContent] = useState(currentArticle?.content)
   const navigate = useNavigate();
   const logContext = useContext(LogContext)
 
@@ -76,8 +78,8 @@ export default function Article() {
           </div>
           {isEditing ? 
           <>
-            <input type="text" className='bg-gray-100 border overflow-x-scroll border-gray-500 py-2 px-1 rounded-lg w-full' placeholder='title' defaultValue={currentArticle?.title} />
-            <textarea className='bg-gray-100 border max-[800px]:h-60 border-gray-500 py-2 px-1 rounded-lg w-full overflow-y-auto' placeholder='content' defaultValue={currentArticle?.content}></textarea>
+            <input type="text" className='bg-gray-100 border overflow-x-scroll border-gray-500 py-2 px-1 rounded-lg w-full' placeholder='title' value={title} />
+            <textarea className='bg-gray-100 border max-[800px]:h-60 border-gray-500 py-2 px-1 rounded-lg w-full overflow-y-auto' placeholder='content' value={content}></textarea>
             <div className='flex gap-3'>
               <button type='button' onClick={() => setIsEditing(true)} className='bg-green-700 text-white rounded-lg mb-3 p-1'>Save</button>
               <button type='button' onClick={() => setIsEditing(false)} className='bg-red-700 text-white rounded-lg mb-3 p-1'>Exit</button>
