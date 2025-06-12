@@ -85,11 +85,12 @@ export default function Article() {
 
       if(res.ok) {
         setSuccess(result)
-        setError('');
+        setTimeout(() => {
+          setIsEditing(false)
+        }, 1000)
         return
       }
       setError(result)
-      setSuccess('');
 
     } catch (error) {
       if(error instanceof Error)
