@@ -136,11 +136,14 @@ export default function Article() {
             <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{currentArticle?.content}</p>
             <div className='flex gap-3'>
               {logContext.isAdmin && <button type='button' onClick={() => deleteArticle(currentArticle!)} className='bg-red-700 text-white rounded-lg mb-3 p-1'>Delete Article</button>}
-              {logContext.isAdmin && <button type='button' onClick={() => setIsEditing(true)} className='bg-blue-700 text-white rounded-lg mb-3 p-1'>Edit Article</button>}
+              {logContext.isAdmin && <button type='button' onClick={() => {
+                setIsEditing(true)
+                setError('')
+                setSuccess('');
+              }} className='bg-blue-700 text-white rounded-lg mb-3 p-1'>Edit Article</button>}
             </div>      
           </>        
           }
-          
         </div>   
       </div>
       <Footer/>
