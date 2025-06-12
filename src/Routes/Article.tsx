@@ -22,6 +22,8 @@ export default function Article() {
   const [isEditing, setIsEditing] = useState(false)
   const [title, setTitle] = useState("")
   const [content, setContent] = useState("")
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const navigate = useNavigate();
   const logContext = useContext(LogContext)
 
@@ -30,12 +32,6 @@ export default function Article() {
     setTitle(currentArticle.title)
     setContent(currentArticle.content)
   }, [currentArticle])
-
-  useEffect(() => {
-    console.log(title);
-    console.log(content);
-    
-  }, [title, content])
 
   useEffect(() => {
     async function fetchArticle(){
@@ -74,6 +70,32 @@ export default function Article() {
       navigate('/', {replace: true});
     } 
   }
+
+  async function updateArticle(article: ArticleProps){
+    try {
+      const res = await fetch('https://focus-news-backend-production.up.railway.app/update/article', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      credentials: "include",
+      body: JSON.stringify({query: article._id, title: title, content: content})
+    })
+      const result = await res.json();
+
+      if(res.ok) {
+        setSuccess(result)
+        setError('');
+        return
+      }
+      setError(result)
+      setSuccess('');
+
+    } catch (error) {
+      if(error instanceof Error)
+        setError(error.message)
+  }
+}
     
   return (
     <>
@@ -92,8 +114,10 @@ export default function Article() {
           <>
             <input type="text" className='bg-gray-100 border overflow-x-scroll border-gray-500 py-2 px-1 rounded-lg w-full' placeholder='title' value={title} onChange={(e) => setTitle(e.target.value)} />
             <textarea className='bg-gray-100 border max-[800px]:h-60 border-gray-500 py-2 px-1 rounded-lg w-full overflow-y-auto' placeholder='content' value={content} onChange={(e) => setContent(e.target.value)}></textarea>
+            <p className='text-sm text-red-600 font-semibold'>{error}</p>
+            <p className='text-sm text-green-600 font-semibold'>{success}</p>
             <div className='flex gap-3'>
-              <button type='button' onClick={() => setIsEditing(true)} className='bg-green-700 text-white rounded-lg mb-3 p-1'>Save</button>
+              <button type='button' onClick={() => updateArticle(currentArticle!)} className='bg-green-700 text-white rounded-lg mb-3 p-1'>Save</button>
               <button type='button' onClick={() => setIsEditing(false)} className='bg-red-700 text-white rounded-lg mb-3 p-1'>Exit</button>
             </div>       
           </>         
