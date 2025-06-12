@@ -19,6 +19,7 @@ export default function Article() {
 
   const { id } = useParams();
   const [currentArticle, setCurrentArticle] = useState<ArticleProps>();
+  const [isEditing, setIsEditing] = useState(false)
   const navigate = useNavigate();
   const logContext = useContext(LogContext)
 
@@ -72,10 +73,23 @@ export default function Article() {
               <img src={eyeImg} alt='views' className="w-4"/>
               <p className='font-mono'>{currentArticle?.views}</p>
           </div>
-          </div>          
-          <h1 className='text-3xl md:text-4xl'>{currentArticle?.title}</h1>
-          <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{currentArticle?.content}</p>
-          {logContext.isAdmin && <button type='button' onClick={() => deleteArticle(currentArticle!)} className='bg-red-700 text-white rounded-lg mb-3 p-1'>Delete Article</button>}
+          </div>
+          {isEditing ? 
+          <>
+            <input type="text" className='bg-gray-100 border border-gray-500 p-1 rounded-lg w-full' placeholder='title' defaultValue={currentArticle?.title} />
+            <textarea className='bg-gray-100 border border-gray-500 p-1 rounded-lg w-full overflow-y-auto' placeholder='content' defaultValue={currentArticle?.content}></textarea>
+            <button type='button' onClick={() => setIsEditing(true)} className='bg-green-700 text-white rounded-lg mb-3 p-1'>Save</button>
+            <button type='button' onClick={() => setIsEditing(false)} className='bg-red-700 text-white rounded-lg mb-3 p-1'>Save</button>
+          </>         
+          : 
+          <>
+            <h1 className='text-3xl md:text-4xl'>{currentArticle?.title}</h1>
+            <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{currentArticle?.content}</p>
+            {logContext.isAdmin && <button type='button' onClick={() => deleteArticle(currentArticle!)} className='bg-red-700 text-white rounded-lg mb-3 p-1'>Delete Article</button>}
+            {logContext.isAdmin && <button type='button' onClick={() => setIsEditing(true)} className='bg-blue-700 text-white rounded-lg mb-3 p-1'>Edit Article</button>}
+          </>        
+          }
+          
         </div>   
       </div>
       <Footer/>
