@@ -24,6 +24,7 @@ export default function Article() {
   const [content, setContent] = useState("")
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [refresh, setRefresh] = useState(false);
   const navigate = useNavigate();
   const logContext = useContext(LogContext)
 
@@ -53,7 +54,7 @@ export default function Article() {
     }
     
     fetchArticle();
-  }, [id]);
+  }, [id, refresh]);
 
   async function deleteArticle(article: ArticleProps){
     const res = await fetch(`https://focus-news-backend-production.up.railway.app/delete/article`, {
@@ -93,6 +94,7 @@ export default function Article() {
         setSuccess(result)
         setTimeout(() => {
           setIsEditing(false)
+          setRefresh(prev => !prev)
         }, 1000)
         return
       }
