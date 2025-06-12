@@ -26,6 +26,11 @@ export default function Article() {
   const logContext = useContext(LogContext)
 
   useEffect(() => {
+    console.log(title)
+    console.log(content)
+  }, [title, content])
+
+  useEffect(() => {
     async function fetchArticle(){
       try {
         const res = await fetch(`https://focus-news-backend-production.up.railway.app/article/${id}`);
@@ -38,8 +43,6 @@ export default function Article() {
         }
 
       setCurrentArticle(result);
-      setTitle(currentArticle?.title!)
-      setContent(currentArticle?.content!)
       } catch (err: unknown) {
         if(err instanceof Error)
           console.error(err)
@@ -80,8 +83,8 @@ export default function Article() {
           </div>
           {isEditing ? 
           <>
-            <input type="text" className='bg-gray-100 border overflow-x-scroll border-gray-500 py-2 px-1 rounded-lg w-full' placeholder='title' value={title} defaultValue={title} onChange={(e) => setTitle(e.target.value)} />
-            <textarea className='bg-gray-100 border max-[800px]:h-60 border-gray-500 py-2 px-1 rounded-lg w-full overflow-y-auto' placeholder='content' value={content} defaultValue={content} onChange={(e) => setContent(e.target.value)}></textarea>
+            <input type="text" className='bg-gray-100 border overflow-x-scroll border-gray-500 py-2 px-1 rounded-lg w-full' placeholder='title' value={currentArticle?.title} onChange={(e) => setTitle(e.target.value)} />
+            <textarea className='bg-gray-100 border max-[800px]:h-60 border-gray-500 py-2 px-1 rounded-lg w-full overflow-y-auto' placeholder='content' value={currentArticle?.content} onChange={(e) => setContent(e.target.value)}></textarea>
             <div className='flex gap-3'>
               <button type='button' onClick={() => setIsEditing(true)} className='bg-green-700 text-white rounded-lg mb-3 p-1'>Save</button>
               <button type='button' onClick={() => setIsEditing(false)} className='bg-red-700 text-white rounded-lg mb-3 p-1'>Exit</button>
