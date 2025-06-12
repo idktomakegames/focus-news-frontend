@@ -32,6 +32,12 @@ export default function Article() {
   }, [currentArticle])
 
   useEffect(() => {
+    console.log(title);
+    console.log(content);
+    
+  }, [title, content])
+
+  useEffect(() => {
     async function fetchArticle(){
       try {
         const res = await fetch(`https://focus-news-backend-production.up.railway.app/article/${id}`);
