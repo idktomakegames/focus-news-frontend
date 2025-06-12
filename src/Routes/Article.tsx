@@ -72,6 +72,11 @@ export default function Article() {
   }
 
   async function updateArticle(article: ArticleProps){
+    setError('');
+    if(title === currentArticle?.title || content === currentArticle?.content){
+      setError("Nu au fost făcute modificări")
+    }
+
     try {
       const res = await fetch('https://focus-news-backend-production.up.railway.app/update/article', {
       method: "POST",
