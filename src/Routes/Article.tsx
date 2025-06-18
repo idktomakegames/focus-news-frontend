@@ -37,10 +37,11 @@ export default function Article() {
     setTitle(currentArticle.title)
     setContent(currentArticle.content)
 
-    const middle = Math.floor(content.length / 2)
-    const splitPoint = content.lastIndexOf(" ", middle)
-    const half1 = content.slice(0, splitPoint)
-    const half2 = content.slice(splitPoint)
+    const articleContent = currentArticle.content
+    const middle = Math.floor(articleContent.length / 2)
+    const splitPoint = articleContent.lastIndexOf(" ", middle)
+    const half1 = articleContent.slice(0, splitPoint)
+    const half2 = articleContent.slice(splitPoint)
     setContentHalf1(half1)
     setContentHalf2(half2)
   }, [currentArticle])
