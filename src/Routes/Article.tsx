@@ -146,7 +146,9 @@ export default function Article() {
           <>
             <h1 className='text-3xl md:text-4xl'>{currentArticle?.title}</h1>
             <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{contentHalf1}</p>
-            <img src={currentArticle?.imageUrl2} width={300} height={300} alt="articleImage2"/>
+            {currentArticle?.imageUrl2 ? (
+              <img src={currentArticle?.imageUrl2} width={300} height={300} alt="articleImage2"/>
+            ) : null}   
             <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{contentHalf2}</p>
             <div className='flex gap-3'>
               {logContext.isAdmin && <button type='button' onClick={() => deleteArticle(currentArticle!)} className='bg-red-700 text-white rounded-lg mb-3 p-1'>Delete Article</button>}
