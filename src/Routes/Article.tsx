@@ -149,7 +149,7 @@ export default function Article() {
               <div className='flex flex-col'>
                 <p className='text-lg md:text-xl pb-10 leading-normal whitespace-pre-wrap'>{contentHalf1}</p>
                 <img src={currentArticle?.imageUrl2} width={400} height={400} alt="articleImage2" className='rounded-lg self-center'/>
-                <p className='text-lg md:text-xl pt-10 pb-20 leading-normal whitespace-pre-wrap'>{contentHalf2}</p>
+                <p className='text-lg md:text-xl pt-5 pb-20 leading-normal whitespace-pre-wrap'>{contentHalf2}</p>
               </div>           
             ) :    
             <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{currentArticle?.content}</p> }
