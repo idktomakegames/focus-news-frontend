@@ -11,6 +11,7 @@ type ArticleProps = {
   content: string,
   category: string,
   imageUrl: string,
+  imageUrl2: string,
   createdAt: string,
   views: number
 }
@@ -25,13 +26,23 @@ export default function Article() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [refresh, setRefresh] = useState(false);
+  const [contentHalf1, setContentHalf1] = useState("");
+  const [contentHalf2, setContentHalf2] = useState("");
   const navigate = useNavigate();
   const logContext = useContext(LogContext)
+
 
   useEffect(() => {
     if(currentArticle == null) return
     setTitle(currentArticle.title)
     setContent(currentArticle.content)
+
+    const middle = Math.floor(content.length / 2)
+    const splitPoint = content.lastIndexOf(" ", middle)
+    const half1 = content.slice(0, splitPoint)
+    const half2 = content.slice(splitPoint)
+    setContentHalf1(half1)
+    setContentHalf2(half2)
   }, [currentArticle])
 
   useEffect(() => {
@@ -133,7 +144,9 @@ export default function Article() {
           : 
           <>
             <h1 className='text-3xl md:text-4xl'>{currentArticle?.title}</h1>
-            <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{currentArticle?.content}</p>
+            <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{contentHalf1}</p>
+            <img src={currentArticle?.imageUrl2} width={300} height={300} alt="articleImage2"/>
+            <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{contentHalf2}</p>
             <div className='flex gap-3'>
               {logContext.isAdmin && <button type='button' onClick={() => deleteArticle(currentArticle!)} className='bg-red-700 text-white rounded-lg mb-3 p-1'>Delete Article</button>}
               {logContext.isAdmin && <button type='button' onClick={() => {

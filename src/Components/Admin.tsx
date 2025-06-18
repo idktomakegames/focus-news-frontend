@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 export default function Admin() {
 
     const [image, setImage] = useState<File | null>(null)
+    const [image2, setImage2] = useState<File | null>(null)
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [category, setCategory] = useState('');
@@ -55,10 +56,11 @@ export default function Admin() {
       }
 
       const data = new FormData()
-      data.append('articleImg', image)
+      data.append('articleImg1', image)
+
 
       try {
-        const res = await fetch('https://focus-news-backend-production.up.railway.app/upload-image', {
+        const res = await fetch('https://focus-news-backend-production.up.railway.app/upload-image1', {
         method: "POST",
         credentials: "include",
         body: data
@@ -66,19 +68,33 @@ export default function Admin() {
         const result = await res.json();
         const imageUrl = result.imageUrl;
 
+        const data2 = new FormData()
+        if(image2){
+          data2.append('articleImg2', image2)
+        }
+
+        const res2 = await fetch('https://focus-news-backend-production.up.railway.app/upload-image2', {
+        method: "POST",
+        credentials: "include",
+        body: data2
+      });
+        const result2 = await res2.json();
+        const imageUrl2 = result2.imageUrl;
+
+
       if(res.status === 201){
-          const res2 = await fetch('https://focus-news-backend-production.up.railway.app/post-article', {
+          const res3 = await fetch('https://focus-news-backend-production.up.railway.app/post-article', {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
           },
           credentials: "include",
-          body: JSON.stringify({title: title, content: content, category: category, imageUrl: imageUrl})
+          body: JSON.stringify({title: title, content: content, category: category, imageUrl: imageUrl, imageUrl2})
         })
-        const result2 = await res2.json();
+        const result3 = await res3.json();
 
-        if(!res2.ok){
-          setUploadError(result2);
+        if(!res3.ok){
+          setUploadError(result3);
           setIsUploadActive(false);
           return;
         }
@@ -93,7 +109,6 @@ export default function Admin() {
     }
   }
 }  
-
 
   return (
     <>  
@@ -124,10 +139,15 @@ export default function Admin() {
                 </select>
             </div>
             <div className='text-center'>
-                <h1 className='text-lg font-semibold pb-1'>Image:</h1>
+                <h1 className='text-lg font-semibold pb-1'>Image 1:</h1>
                 <input type="file" accept='image/*' className='bg-gray-100 border border-gray-500 p-1 rounded-lg' onChange={(e) => {
                   if(e.target.files && e.target.files[0]){setImage(e.target.files[0])}
                 }} />  
+
+                <h1 className='text-lg font-semibold pb-1'>Image 2:</h1>
+                <input type="file" accept='image/*' className='bg-gray-100 border border-gray-500 p-1 rounded-lg' onChange={(e) => {
+                  if(e.target.files && e.target.files[0]){setImage2(e.target.files[0])}
+                }} />
             </div>        
             <p className='text-red-500 text-md font-bold'>{uploadError}</p>
             <p className='text-green-500 text-md font-bold'>{uploadSuccess}</p>
