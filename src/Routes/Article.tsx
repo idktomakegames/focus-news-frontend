@@ -151,8 +151,8 @@ export default function Article() {
                 <img src={currentArticle?.imageUrl2} width={400} height={400} alt="articleImage2" className='rounded-lg self-center'/>
                 <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{contentHalf2}</p>
               </div>           
-            ) : null}   
-            <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{currentArticle?.content}</p>
+            ) :    
+            <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{currentArticle?.content}</p> }
             <div className='flex gap-3'>
               {logContext.isAdmin && <button type='button' onClick={() => deleteArticle(currentArticle!)} className='bg-red-700 text-white rounded-lg mb-3 p-1'>Delete Article</button>}
               {logContext.isAdmin && <button type='button' onClick={() => {
