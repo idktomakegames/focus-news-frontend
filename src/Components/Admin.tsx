@@ -68,19 +68,20 @@ export default function Admin() {
         const result = await res.json();
         const imageUrl = result.imageUrl;
 
+
+        let imageUrl2 = null
         const data2 = new FormData()
         if(image2){
           data2.append('articleImg2', image2)
+
+          const res2 = await fetch('https://focus-news-backend-production.up.railway.app/upload-image2', {
+          method: "POST",
+          credentials: "include",
+          body: data2
+        });
+          const result2 = await res2.json();
+          imageUrl2 = result2.imageUrl2;
         }
-
-        const res2 = await fetch('https://focus-news-backend-production.up.railway.app/upload-image2', {
-        method: "POST",
-        credentials: "include",
-        body: data2
-      });
-        const result2 = await res2.json();
-        const imageUrl2 = result2.imageUrl2;
-
 
       if(res.status === 201){
           const res3 = await fetch('https://focus-news-backend-production.up.railway.app/post-article', {
@@ -98,7 +99,7 @@ export default function Admin() {
           setIsUploadActive(false);
           return;
         }
-        if(res.status === 201 && res2.status === 201){
+        if(res.status === 201 && res3.status === 201){
           setUploadSuccess("Article uploaded successfully");
           setIsUploadActive(false)
         }
