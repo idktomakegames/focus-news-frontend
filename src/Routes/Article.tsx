@@ -38,7 +38,7 @@ export default function Article() {
     setContent(currentArticle.content)
 
     const articleContent = currentArticle.content
-    const middle = Math.floor(articleContent.length / 2)
+    const middle = Math.round(articleContent.length / 1.5)
     const splitPoint = articleContent.lastIndexOf(" ", middle)
     const half1 = articleContent.slice(0, splitPoint)
     const half2 = articleContent.slice(splitPoint)
@@ -146,11 +146,11 @@ export default function Article() {
           <>
             <h1 className='text-3xl md:text-4xl'>{currentArticle?.title}</h1>
             {currentArticle?.imageUrl2 ? (
-              <>
-                <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{contentHalf1}</p>
+              <div className='text-left'>
+                <p className='text-lg md:text-xl leading-normal whitespace-pre-wrap'>{contentHalf1}</p>
                 <img src={currentArticle?.imageUrl2} width={300} height={300} alt="articleImage2"/>
                 <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{contentHalf2}</p>
-              </>           
+              </div>           
             ) : null}   
             <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{currentArticle?.content}</p>
             <div className='flex gap-3'>
