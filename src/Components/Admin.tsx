@@ -79,7 +79,7 @@ export default function Admin() {
         body: data2
       });
         const result2 = await res2.json();
-        const imageUrl2 = result2.imageUrl;
+        const imageUrl2 = result2.imageUrl2;
 
 
       if(res.status === 201){
