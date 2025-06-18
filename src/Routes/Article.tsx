@@ -39,7 +39,7 @@ export default function Article() {
 
     const articleContent = currentArticle.content
     const middle = Math.round(articleContent.length / 1.5)
-    const splitPoint = articleContent.lastIndexOf(".", middle)
+    const splitPoint = articleContent.lastIndexOf(".", middle) + 1;
     const half1 = articleContent.slice(0, splitPoint)
     const half2 = articleContent.slice(splitPoint)
     setContentHalf1(half1)
