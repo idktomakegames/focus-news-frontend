@@ -39,7 +39,7 @@ export default function Article() {
 
     const articleContent = currentArticle.content
     const middle = Math.ceil(articleContent.length / 3)
-    const splitPoint = articleContent.lastIndexOf(".", middle * 3) + 1;
+    const splitPoint = articleContent.lastIndexOf(".", middle * 4) + 1;
     const half1 = articleContent.slice(0, splitPoint)
     const half2 = articleContent.slice(splitPoint)
     setContentHalf1(half1)
@@ -149,7 +149,7 @@ export default function Article() {
               <div className='flex flex-col'>
                 <p className='text-lg md:text-xl pb-10 leading-normal whitespace-pre-wrap'>{contentHalf1}</p>
                 <img src={currentArticle?.imageUrl2} width={300} height={300} alt="articleImage2" className='rounded-lg self-center'/>
-                <p className='text-lg md:text-xl pt-10 pb-20 leading-normal whitespace-pre-wrap'>{contentHalf2}</p>
+                <p className='text-lg md:text-xl pt-5 pb-20 leading-normal whitespace-pre-wrap'>{contentHalf2}</p>
               </div>           
             ) : null}   
             <p className='text-lg md:text-xl pb-20 leading-normal whitespace-pre-wrap'>{currentArticle?.content}</p>
