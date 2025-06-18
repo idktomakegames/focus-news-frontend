@@ -146,7 +146,7 @@ export default function Article() {
           <>
             <h1 className='text-3xl md:text-4xl'>{currentArticle?.title}</h1>
             {currentArticle?.imageUrl2 ? (
-              <div className='text-left flex '>
+              <div className='text-left flex justify-center items-start '>
                 <p className='text-lg md:text-xl pb-5 leading-normal whitespace-pre-wrap'>{contentHalf1}</p>
                 <img src={currentArticle?.imageUrl2} width={300} height={300} alt="articleImage2" className='rounded-lg self-center'/>
                 <p className='text-lg md:text-xl pt-5 pb-20 leading-normal whitespace-pre-wrap'>{contentHalf2}</p>
