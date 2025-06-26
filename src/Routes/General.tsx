@@ -43,9 +43,9 @@ export default function General() {
     return (
       <>
       <Navbar/>
-      <h1 className='text-center text-4xl md:text-5xl font-semibold py-5'>General</h1>
-      <div className='flex justify-center py-5'>
-            <label>Sortare:</label>
+      <h1 className='text-center text-4xl md:text-5xl font-semibold pt-10 pb-5'>General</h1>
+      <div className='flex justify-center items-center py-5 gap-2'>
+            <label className='font-semibold'>Sortare:</label>
             <select onChange={(e) => setSort(e.target.value)} className='border border-gray-200 rounded-lg p-1'>
                     <option value="newest" defaultChecked>Cele mai noi</option>
                     <option value="popular" defaultChecked>Cele mai populare</option>
