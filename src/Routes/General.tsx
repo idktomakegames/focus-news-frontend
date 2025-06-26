@@ -20,9 +20,7 @@ export default function General() {
 
     useEffect(() => {
       async function fetchArticles() {
-      const res = await fetch(`https://focus-news-backend-production.up.railway.app/get-articles/${currentPage}`, {
-        body: JSON.stringify({sorting: sort})
-      })
+      const res = await fetch(`https://focus-news-backend-production.up.railway.app/get-articles/${currentPage}/${sort}`)
       const result = await res.json();
       setArticles(result.articles)
       setTotalPages(result.totalPages)
