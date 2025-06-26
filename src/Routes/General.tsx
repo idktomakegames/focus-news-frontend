@@ -27,7 +27,7 @@ export default function General() {
           
     }
     fetchArticles()
-    }, [currentPage]);
+    }, [currentPage, sort]);
 
     function nextPage(){
       if(currentPage === totalPages) return;
@@ -44,6 +44,13 @@ export default function General() {
       <>
       <Navbar/>
       <h1 className='text-center text-4xl md:text-5xl font-semibold py-10'>General</h1>
+      <div className='flex justify-center w-full'>
+            <select onChange={(e) => setSort(e.target.value)} className='border border-gray-200 rounded-lg p-1'>
+                    <option value="newest" defaultChecked>Cele mai noi</option>
+                    <option value="popular" defaultChecked>Cele mai populare</option>
+                    <option value="oldest">Cele mai vechi</option>
+            </select> 
+      </div>
       <div className='flex justify-center'>
           <div className="grid gap-5" id="articlesDisplay">
             {articles?.length > 0 && (
@@ -55,13 +62,6 @@ export default function General() {
                       </div>                  
                 </fieldset> 
               </Link>)}
-              <div className='flex justify-center w-full'>
-                <select onChange={(e) => setSort(e.target.value)} className='border border-gray-200 rounded-lg p-1'>
-                        <option value="newest" defaultChecked>Cele mai noi</option>
-                        <option value="popular" defaultChecked>Cele mai populare</option>
-                        <option value="oldest">Cele mai vechi</option>
-                  </select> 
-              </div>
             {articles?.map((article, index) => <Link to={`/article/${article._id}`} key={index}>
               <fieldset className="border-2 border-gray-400 h-80 rounded-lg flex flex-col items-center">
                   <img src={article.imageUrl} alt="articleImage" className='w-full h-1/2' />
