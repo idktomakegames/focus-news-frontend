@@ -16,11 +16,13 @@ export default function General() {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [articles, setArticles] = useState<ArticleProps[]>([]);
-
+    const [sort, setSort] = useState("newest");
 
     useEffect(() => {
       async function fetchArticles() {
-      const res = await fetch(`https://focus-news-backend-production.up.railway.app/get-articles/${currentPage}`)
+      const res = await fetch(`https://focus-news-backend-production.up.railway.app/get-articles/${currentPage}`, {
+        body: JSON.stringify({sorting: sort})
+      })
       const result = await res.json();
       setArticles(result.articles)
       setTotalPages(result.totalPages)
@@ -52,7 +54,12 @@ export default function General() {
                       <div className='relative w-full'>
                         <img src={articles[0].imageUrl} alt="articleImage" className='opacity-70 w-full h-[500px] object-cover border-2 border-gray-400 rounded-lg' />
                         <h1 className='p-10 text-3xl absolute inset-0 font-extrabold' style={{zIndex: 10}}>{articles[0].title}</h1>
-                      </div>                      
+                      </div>  
+                      <select onChange={(e) => setSort(e.target.value)}>
+                        <option value="newest" defaultChecked>Cele mai noi</option>
+                        <option value="popular" defaultChecked>Cele mai populare</option>
+                        <option value="oldest">Cele mai vechi</option>
+                      </select>                 
                 </fieldset> 
               </Link>)}
             {articles?.map((article, index) => <Link to={`/article/${article._id}`} key={index}>
