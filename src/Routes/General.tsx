@@ -55,7 +55,7 @@ export default function General() {
                       </div>                  
                 </fieldset> 
               </Link>)}
-              <div className='flex justify-center'>
+              <div className='flex justify-center w-full'>
                 <select onChange={(e) => setSort(e.target.value)} className='border border-gray-200 rounded-lg p-1'>
                         <option value="newest" defaultChecked>Cele mai noi</option>
                         <option value="popular" defaultChecked>Cele mai populare</option>
