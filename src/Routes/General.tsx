@@ -46,7 +46,7 @@ export default function General() {
       <h1 className='text-center text-4xl md:text-5xl font-semibold pt-10 pb-5'>General</h1>
       <div className='flex justify-center items-center py-5 gap-2'>
             <label className='font-semibold'>Sortare:</label>
-            <select onChange={(e) => setSort(e.target.value)} className='border border-gray-200 rounded-lg p-1'>
+            <select onChange={(e) => setSort(e.target.value)} className='border border-gray-300 bg-gray-200 rounded-lg p-1'>
                     <option value="newest" defaultChecked>Cele mai noi</option>
                     <option value="popular" defaultChecked>Cele mai populare</option>
                     <option value="oldest">Cele mai vechi</option>
