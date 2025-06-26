@@ -55,8 +55,8 @@ export default function General() {
                       </div>                  
                 </fieldset> 
               </Link>)}
-              <div>
-                <select onChange={(e) => setSort(e.target.value)}>
+              <div className='flex justify-center'>
+                <select onChange={(e) => setSort(e.target.value)} className='border border-gray-200 rounded-lg p-1'>
                         <option value="newest" defaultChecked>Cele mai noi</option>
                         <option value="popular" defaultChecked>Cele mai populare</option>
                         <option value="oldest">Cele mai vechi</option>
