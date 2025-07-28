@@ -64,8 +64,8 @@ export default function General() {
                 </fieldset> 
               </Link>)}
             {articles?.map((article, index) => <Link to={`/article/${article._id}`} key={index}>
-              <fieldset className="border-2 border-gray-400 h-80 rounded-lg flex flex-col items-center">
-                  <img src={article.imageUrl} alt="articleImage" className='w-full h-1/2' />
+              <fieldset className="border-2 border-blue-400 h-80 rounded-lg flex flex-col items-center">
+                  <img src={article.imageUrl} alt="articleImage" className='w-full h-1/2 object-cover' />
                   <h1 className="text-md font-semibold p-2">{article.title}</h1>
               </fieldset> 
             </Link>)}  
