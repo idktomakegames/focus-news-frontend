@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { LogContext } from '../App';
 import userIcon from '../assets/user-solid.svg';
 import adminIcon from '../assets/plus-solid.svg';
@@ -8,11 +8,24 @@ import searchIcon from '../assets/magnifying-glass-solid.svg';
 
 export default function Navbar() {
 
+
   const [displaySearchbar, setDisplaySearchbar] = useState(false);
   const [sidebarDisplay, setSidebarDisplay] = useState(false);
   const logContext = useContext(LogContext);
   const [searchbarQuery, setSearchbarQuery] = useState('');
   const navigate = useNavigate();
+
+  
+  
+  useEffect(() => {
+    document.body.style.overflow = sidebarDisplay ? "hidden" : "auto"
+
+    return () => {
+      document.body.style.overflow = "auto"
+    }
+
+  }, [sidebarDisplay])
+ 
 
   function onSubmit(){
       navigate(`/search/${searchbarQuery}`)
