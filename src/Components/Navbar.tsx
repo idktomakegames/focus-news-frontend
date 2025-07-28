@@ -60,7 +60,7 @@ export default function Navbar() {
         {sidebarDisplay ? (
           <div id='sidebar' style={{zIndex: 99}} className='fixed top-0 left-0 text-white bg-blue-950 h-full flex justify-center'>
           <ul className='flex flex-col items-center gap-12 w-full'>
-              <button className='text-3xl mt-5 pr-5 self-start' onClick={() => setSidebarDisplay(false)}>X</button>
+              <button className='text-3xl mt-5 pl-5 self-start' onClick={() => setSidebarDisplay(false)}>X</button>
               <form onSubmit={onSubmit} className='flex justify-end'>
                 <input type="text" required placeholder='Caută' className='border border-gray-400 w-full p-1 outline-gray-400 rounded-lg text-black' onChange={(e) => setSearchbarQuery(e.target.value)} />
                 <button type='submit' style={{display: "none"}}> <i className="fa-solid fa-magnifying-glass"/></button>
