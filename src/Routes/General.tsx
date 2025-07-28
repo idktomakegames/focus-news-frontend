@@ -56,7 +56,7 @@ export default function General() {
           <div className="grid gap-5" id="articlesDisplay">
             {articles?.length > 0 && (
                 <Link to={`/article/${articles[0]?._id}`} className='col-span-full' id='firstArticle'>
-                <fieldset className="flex flex-col items-center">
+                <fieldset className="flex flex-col items-center border-2 border-blue-400">
                       <div className='relative w-full'>
                         <img src={articles[0].imageUrl} alt="articleImage" className='opacity-70 w-full h-[500px] object-cover border-2 border-gray-400 rounded-lg' />
                         <h1 className='p-10 text-3xl absolute inset-0 font-extrabold' style={{zIndex: 10}}>{articles[0].title}</h1>
@@ -64,7 +64,7 @@ export default function General() {
                 </fieldset> 
               </Link>)}
             {articles?.map((article, index) => <Link to={`/article/${article._id}`} key={index}>
-              <fieldset className="border-2 border-blue-400 h-80 rounded-lg flex flex-col items-center">
+              <fieldset className="border-2 border-blue-400 h-80 rounded-lg flex flex-col items-center bg-blue-50">
                   <img src={article.imageUrl} alt="articleImage" className='w-full h-1/2 object-cover' />
                   <h1 className="text-md font-semibold p-2">{article.title}</h1>
               </fieldset> 
