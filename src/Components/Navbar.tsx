@@ -23,7 +23,6 @@ export default function Navbar() {
     return () => {
       document.body.style.overflow = "auto"
     }
-
   }, [sidebarDisplay])
  
 
@@ -73,7 +72,10 @@ export default function Navbar() {
         {sidebarDisplay ? (
           <div id='sidebar' style={{zIndex: 99}} className='fixed top-0 left-0 text-white bg-blue-950 h-full flex justify-center'>
           <ul className='flex flex-col items-center gap-12 w-full'>
-              <button className='text-3xl mt-5 pl-5 self-start' onClick={() => setSidebarDisplay(false)}>X</button>
+              <div className='flex'>
+                <button className='text-3xl self-start' onClick={() => setSidebarDisplay(false)}>X</button>
+                <img src="/logo.png" width={200} height={200} alt="logo picture" id='logo' className='self-center'/>
+              </div>   
               <form onSubmit={onSubmit} className='flex justify-end'>
                 <input type="text" required placeholder='Caută' className='border border-gray-400 w-full p-1 outline-gray-400 rounded-lg text-black' onChange={(e) => setSearchbarQuery(e.target.value)} />
                 <button type='submit' style={{display: "none"}}> <i className="fa-solid fa-magnifying-glass"/></button>
@@ -84,7 +86,6 @@ export default function Navbar() {
               <li className="cursor-pointer"><Link className='text-xl' onClick={() => setSidebarDisplay(false)} to={'/category/politica'}>Politică</Link></li>
               <li className="cursor-pointer"><Link className='text-xl' onClick={() => setSidebarDisplay(false)} to={'/category/sanatate'}>Sănătate</Link></li>
               <li className="cursor-pointer"><Link className='text-xl' onClick={() => setSidebarDisplay(false)} to={'/category/tragedii'}>Tragedii</Link></li>
-              <img src="/logo.png" width={200} height={200} alt="logo picture" id='logo' />
           </ul>
         </div>
         ): null}  
