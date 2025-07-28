@@ -71,7 +71,7 @@ export default function Navbar() {
 
         {sidebarDisplay ? (
           <div id='sidebar' style={{zIndex: 99}} className='fixed top-0 left-0 text-white bg-blue-950 h-full flex justify-center'>
-          <ul className='flex flex-col items-center gap-12 w-full'>
+          <ul className='flex flex-col items-center gap-6 md:gap-12 w-full'>
               <button className='text-3xl self-start ml-2 mt-2' onClick={() => setSidebarDisplay(false)}>X</button>
               <img src="/logo.png" width={150} height={150} alt="logo picture" id='logo'/> 
               <form onSubmit={onSubmit} className='flex justify-end'>
