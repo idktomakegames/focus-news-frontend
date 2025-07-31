@@ -49,7 +49,7 @@ export default function Tragedii() {
                 <Link to={`/article/${articles[0]?._id}`} className='col-span-full'>
                 <fieldset className="border-2 border-blue-600 rounded-lg flex flex-col items-center">
                       <div className='relative w-full'>
-                        <img src={articles[0].imageUrl} alt="articleImage" className='opacity-80 w-full h-[500px] object-cover border-2 border-gray-400 rounded-lg' />
+                        <img src={articles[0].imageUrl} alt="articleImage" className='w-full h-[500px] object-cover border border-blue-600 rounded-lg' />
                         <h1 className='p-10 text-3xl absolute bottom-0 font-extrabold text-white' style={{zIndex: 10, textShadow: "2px 2px 6px black"}}>{articles[0].title}</h1>
                       </div>                       
                 </fieldset> 
