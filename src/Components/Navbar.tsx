@@ -51,7 +51,7 @@ export default function Navbar() {
               {displaySearchbar ? 
               <div className='absolute right-20 items-center' id='searchBar'>
                 <form onSubmit={onSubmit} className='flex justify-end'>
-                  <input type="text" required placeholder='search' className='border border-gray-400 w-full px-1 outline-gray-400 rounded-lg text-black' onChange={(e) => setSearchbarQuery(e.target.value)} />
+                  <input type="text" required placeholder='Caută' className='border border-gray-400 w-full px-1 outline-gray-400 rounded-lg text-black' onChange={(e) => setSearchbarQuery(e.target.value)} />
                   <button type='submit' style={{display: "none"}}> <i className="fa-solid fa-magnifying-glass"/></button>
                   <button onClick={() => setDisplaySearchbar(false)} className='text-2xl p-1'>X</button>
                 </form>
