@@ -47,10 +47,10 @@ export default function Tragedii() {
           <div className="grid gap-5" id="articlesDisplay">
             {articles?.length > 0 && (
                 <Link to={`/article/${articles[0]?._id}`} className='col-span-full'>
-                <fieldset className="border-2 border-blue-600 rounded-lg flex flex-col items-center">
+                <fieldset className=" flex flex-col items-center">
                       <div className='relative w-full'>
-                        <img src={articles[0].imageUrl} alt="articleImage" className='w-full h-[500px] object-cover rounded-lg' />
-                        <h1 className='p-10 text-3xl absolute bottom-0 font-extrabold text-white' style={{zIndex: 10, textShadow: "2px 2px 6px black"}}>{articles[0].title}</h1>
+                        <img src={articles[0].imageUrl} alt="articleImage" className='w-full h-[500px] object-cover rounded-lg border-2 border-blue-600' />
+                        <h1 className='p-10 text-3xl absolute bottom-0 font-extrabold text-white' style={{zIndex: 10, textShadow: "2px 2px 10px black"}}>{articles[0].title}</h1>
                       </div>                       
                 </fieldset> 
               </Link>)}
