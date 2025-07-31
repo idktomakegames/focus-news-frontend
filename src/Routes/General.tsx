@@ -58,7 +58,7 @@ export default function General() {
                 <Link to={`/article/${articles[0]?._id}`} className='col-span-full' id='firstArticle'>
                 <fieldset className="flex flex-col items-center">
                       <div className='relative w-full'>
-                        <img src={articles[0].imageUrl} alt="articleImage" className='w-full h-[500px] object-cover rounded-lg border-2 border-blue-600' />
+                        <img src={articles[0].imageUrl} alt="articleImage" className='w-full h-[400px] md:h-[500px] object-cover rounded-lg border-2 border-blue-600' />
                         <h1 className='p-5 md:p-10 text-xl md:text-3xl absolute bottom-0 font-extrabold text-white' style={{zIndex: 10, textShadow: "2px 2px 10px black"}}>{articles[0].title}</h1>
                       </div>                  
                 </fieldset> 
