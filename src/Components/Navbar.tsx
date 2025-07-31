@@ -51,7 +51,7 @@ export default function Navbar() {
               {displaySearchbar ? 
               <div className='absolute right-20 items-center' id='searchBar'>
                 <form onSubmit={onSubmit} className='flex justify-end'>
-                  <input type="text" required placeholder='search' className='border border-gray-400 w-full px-2 outline-gray-400 rounded-md text-black' onChange={(e) => setSearchbarQuery(e.target.value)} />
+                  <input type="text" required placeholder='search' className='border border-gray-400 w-full px-1 outline-gray-400 rounded-lg text-black' onChange={(e) => setSearchbarQuery(e.target.value)} />
                   <button type='submit' style={{display: "none"}}> <i className="fa-solid fa-magnifying-glass"/></button>
                   <button onClick={() => setDisplaySearchbar(false)} className='text-2xl p-1'>X</button>
                 </form>
@@ -69,7 +69,7 @@ export default function Navbar() {
           </ul>
         </nav>
 
-        {sidebarDisplay ? (
+        {sidebarDisplay && (
           <div id='sidebar' style={{zIndex: 99}} className='fixed top-0 left-0 text-white bg-blue-950 h-full flex justify-center'>
           <ul className='flex flex-col items-center gap-8 md:gap-12 w-full'>
               <button className='text-3xl self-start ml-4 mt-4' onClick={() => setSidebarDisplay(false)}>X</button>
@@ -86,7 +86,7 @@ export default function Navbar() {
               <li className="cursor-pointer"><Link className='text-xl' onClick={() => setSidebarDisplay(false)} to={'/category/tragedii'}>Tragedii</Link></li>
           </ul>
         </div>
-        ): null}  
+        )}  
     </>
   )
 }
