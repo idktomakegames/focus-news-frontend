@@ -20,7 +20,6 @@ import Cookies from './Routes/Cookies';
 import Context from './Components/Context';
 
 
-
 function App() {
 
   return (
