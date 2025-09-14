@@ -1,5 +1,5 @@
 import { useEffect, useContext, useState } from 'react';
-import { LogContext } from '../App';
+import { LogContext } from '../Components/Context';
 import { useNavigate, Link } from 'react-router-dom';
 import profileIcon from '../assets/circle-user-solid.svg'
 

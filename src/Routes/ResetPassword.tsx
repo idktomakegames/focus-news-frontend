@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { LogContext } from '../App';
+import { LogContext } from '../Components/Context';
 
 export default function ResetPassword() {
 

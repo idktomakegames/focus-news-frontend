@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useContext, useEffect } from 'react';
-import { LogContext } from '../App';
+import { LogContext } from './Context';
 import userIcon from '../assets/user-solid.svg';
 import adminIcon from '../assets/plus-solid.svg';
 import menuIcon from '../assets/bars-solid.svg';

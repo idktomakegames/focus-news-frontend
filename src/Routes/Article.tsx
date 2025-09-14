@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { LogContext } from '../App';
+import { LogContext } from '../Components/Context';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import { useParams, useNavigate } from 'react-router-dom';

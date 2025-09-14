@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { LogContext } from '../App';
+import { LogContext } from './Context';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
